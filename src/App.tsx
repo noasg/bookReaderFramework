@@ -22,6 +22,7 @@ export default function App() {
       <div style={{ display: "flex", flex: 1 }}>
         <BookSidebar />
         <RightPanel />
+        {/* //test */}
       </div>
     </div>
   );
