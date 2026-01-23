@@ -1,0 +1,21 @@
+{
+  "id": "book-1",
+  "title": "Demo Book One",
+  "chapters": [
+    {
+      "id": "ch-1",
+      "title": "Chapter One",
+      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter one text." }]
+    },
+    {
+      "id": "ch-2",
+      "title": "Chapter Two",
+      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter two text." }]
+    },
+    {
+      "id": "ch-3",
+      "title": "Chapter Three",
+      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter three text." }]
+    }
+  ]
+}
