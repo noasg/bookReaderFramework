@@ -11,15 +11,13 @@ export default function TopBar() {
   };
 
   return (
-    <header
-      style={{
-        padding: "8px 16px",
-        borderBottom: "1px solid #ccc",
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      <button onClick={goHome}>← Back to books</button>
+    <header className="h-14 px-6 flex items-center bg-[#F8F5F1] border-b border-indigo-900/10 shadow-md">
+      <button
+        onClick={goHome}
+        className="text-indigo-900 font-medium hover:text-indigo-700 transition-colors"
+      >
+        ← Back to books
+      </button>
     </header>
   );
 }

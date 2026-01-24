@@ -21,42 +21,35 @@ export default function RightPanel() {
 
   if (!openChapterId) {
     return (
-      <main style={{ flex: 1, padding: 20 }}>
-        <em>Select a chapter to read</em>
+      <main className="flex-1 px-10 py-8 text-indigo-900/60 italic">
+        Select a chapter to read
       </main>
     );
   }
 
   const chapter = book.chapters.find((ch) => ch.id === openChapterId);
-
   if (!chapter) return null;
 
   return (
-    <main
-      style={{
-        flex: 1,
-        padding: 20,
-        borderLeft: "1px solid #ccc",
-        overflowY: "auto",
-      }}
-    >
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 16,
-        }}
-      >
-        <h2>{chapter.title}</h2>
-        <button onClick={() => dispatch(closeChapter())}>✕ Close</button>
+    <main className="flex-1 px-10 py-8 overflow-y-auto border-l border-indigo-900/10">
+      <header className="flex items-center justify-between mb-8">
+        <h2 className="text-2xl font-semibold text-indigo-900">
+          {chapter.title}
+        </h2>
+
+        <button
+          onClick={() => dispatch(closeChapter())}
+          className="text-indigo-900/60 hover:text-indigo-900 transition-colors"
+        >
+          ✕ Close
+        </button>
       </header>
 
-      {chapter.paragraphs.map((p) => (
-        <p key={p.id} style={{ marginBottom: 12 }}>
-          {p.text}
-        </p>
-      ))}
+      <article className="space-y-4 text-indigo-900 leading-relaxed">
+        {chapter.paragraphs.map((p) => (
+          <p key={p.id}>{p.text}</p>
+        ))}
+      </article>
     </main>
   );
 }
