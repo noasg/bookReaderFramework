@@ -11,6 +11,10 @@ export default function BookSidebar() {
     (state: RootState) => state.book.activeBookId,
   );
 
+  const activeChapterId = useSelector(
+    (state: RootState) => state.ui.openChapterId,
+  );
+
   const book = useSelector((state: RootState) =>
     activeBookId ? state.book.books[activeBookId] : null,
   );
@@ -28,7 +32,7 @@ export default function BookSidebar() {
         ${collapsed ? "w-12" : "w-64"}
       `}
     >
-      {/* Toggle button */}
+      {/* Toggle */}
       <button
         onClick={() => setCollapsed(!collapsed)}
         className="
@@ -50,30 +54,34 @@ export default function BookSidebar() {
         className={`
           px-5 py-6
           transition-all duration-200
-          ${collapsed ? "opacity-0 translate-x-[-8px] pointer-events-none" : "opacity-100"}
+          ${collapsed ? "opacity-0 -translate-x-2 pointer-events-none" : "opacity-100"}
         `}
       >
         <h3 className="text-lg font-semibold text-indigo-900 mb-6">
           {book.title}
         </h3>
 
-        <nav className="flex flex-col gap-2">
-          {book.chapters.map((ch) => (
-            <button
-              key={ch.id}
-              onClick={() => dispatch(openChapter(ch.id))}
-              className="
-                text-left
-                px-3 py-2
-                rounded-lg
-                text-indigo-900
-                hover:bg-indigo-900/5
-                transition-colors
-              "
-            >
-              {ch.title}
-            </button>
-          ))}
+        <nav className="flex flex-col gap-1">
+          {book.chapters.map((ch) => {
+            const isActive = ch.id === activeChapterId;
+
+            return (
+              <button
+                key={ch.id}
+                onClick={() => dispatch(openChapter(ch.id))}
+                className={`
+                  text-left px-3 py-2 rounded-lg transition-all
+                  ${
+                    isActive
+                      ? "bg-indigo-900/10 text-indigo-900 font-semibold"
+                      : "text-indigo-900 hover:bg-indigo-900/5"
+                  }
+                `}
+              >
+                {ch.title}
+              </button>
+            );
+          })}
         </nav>
       </div>
     </aside>

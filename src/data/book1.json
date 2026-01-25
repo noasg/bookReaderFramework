@@ -5,7 +5,16 @@
     {
       "id": "ch-1",
       "title": "Chapter One",
-      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter one text." }]
+      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter one text." }],
+      "alternatives": [
+        {
+          "id": "alt-1",
+          "label": "Alternate Version 1",
+          "paragraphs": [
+            { "id": "p-1", "text": "Alternate version of chapter one." }
+          ]
+        }
+      ]
     },
     {
       "id": "ch-2",
@@ -15,7 +24,23 @@
     {
       "id": "ch-3",
       "title": "Chapter Three",
-      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter three text." }]
+      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter three text." }],
+      "alternatives": [
+        {
+          "id": "alt-1",
+          "label": "Alternate Version 1",
+          "paragraphs": [
+            { "id": "p-1", "text": "First alternate of chapter three." }
+          ]
+        },
+        {
+          "id": "alt-2",
+          "label": "Alternate Version 2",
+          "paragraphs": [
+            { "id": "p-1", "text": "Second alternate of chapter three." }
+          ]
+        }
+      ]
     }
   ]
 }
