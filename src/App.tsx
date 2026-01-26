@@ -1,28 +1,30 @@
 import { useSelector } from "react-redux";
+import type { RootState } from "../store";
 import "../global.css";
 import BookSidebar from "./components/BookSidebar";
 import Home from "./pages/Home";
-import type { RootState } from "../store";
 import TopBar from "./components/TopBar";
 import RightPanel from "./components/RightPanel";
+import { useState } from "react";
 
 export default function App() {
   const activeBookId = useSelector(
     (state: RootState) => state.book.activeBookId,
   );
 
-  if (!activeBookId) {
-    return <Home />;
-  }
+  // Global Diff toggle
+  const [showDiff, setShowDiff] = useState(true);
+
+  if (!activeBookId) return <Home />;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-      <TopBar />
+    <div className="flex flex-col h-screen">
+      {/* TopBar with Diff toggle */}
+      <TopBar showDiff={showDiff} onToggleDiff={() => setShowDiff(!showDiff)} />
 
-      <div style={{ display: "flex", flex: 1 }}>
+      <div className="flex flex-1">
         <BookSidebar />
-        <RightPanel />
-        {/* //test */}
+        <RightPanel showDiff={showDiff} />
       </div>
     </div>
   );

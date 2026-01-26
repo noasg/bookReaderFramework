@@ -1,95 +1,86 @@
-import { useEffect, useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeChapter } from "./ui/uiSlice";
 import type { Chapter } from "../types/types";
+import TextPanel from "./TextPanel";
 
-export default function ChapterPanels({ chapter }: { chapter: Chapter }) {
+type ChapterPanelsProps = {
+  chapter: Chapter;
+  showDiff: boolean; // controlled by TopBar
+};
+
+export default function ChapterPanels({
+  chapter,
+  showDiff,
+}: ChapterPanelsProps) {
   const dispatch = useDispatch();
 
-  const [showOriginal, setShowOriginal] = useState(true);
-  const [showAlternative, setShowAlternative] = useState(true);
+  const [showLeft, setShowLeft] = useState(true);
+  const [showRight, setShowRight] = useState(true);
+
+  // Track selected versions for each panel
+  const [leftSelectedVersionId, setLeftSelectedVersionId] =
+    useState("original");
+  const [rightSelectedVersionId, setRightSelectedVersionId] = useState(
+    chapter.alternatives?.[0]?.id ?? "original",
+  );
 
   const hasAlternatives =
     !!chapter.alternatives && chapter.alternatives.length > 0;
-  const alternative = hasAlternatives ? chapter.alternatives![0] : null;
+  const visiblePanels = Number(showLeft) + Number(showRight && hasAlternatives);
 
-  const visiblePanels =
-    Number(showOriginal) + Number(showAlternative && hasAlternatives);
-
-  // Auto-unselect chapter if all panels are closed
+  // Auto-close chapter if all panels closed
   useEffect(() => {
-    if (!showOriginal && (!hasAlternatives || !showAlternative)) {
+    if (!showLeft && (!hasAlternatives || !showRight)) {
       dispatch(closeChapter());
     }
-  }, [showOriginal, showAlternative, hasAlternatives, dispatch]);
+  }, [showLeft, showRight, hasAlternatives, dispatch]);
+
+  // Compute left panel text for diff
+  const leftVersion = useMemo(() => {
+    if (leftSelectedVersionId === "original") return chapter.paragraphs;
+    return (
+      chapter.alternatives?.find((a) => a.id === leftSelectedVersionId)
+        ?.paragraphs ?? chapter.paragraphs
+    );
+  }, [leftSelectedVersionId, chapter]);
+
+  const leftText = leftVersion.map((p) => p.text).join("\n");
 
   return (
     <main className="flex-1 flex overflow-hidden border-l border-indigo-900/10">
-      {/* ORIGINAL PANEL */}
-      <section
-        className={`
-          transition-all duration-300 ease-in-out overflow-hidden
-          ${
-            showOriginal
-              ? visiblePanels === 2
-                ? "w-1/2 opacity-100"
-                : "w-full opacity-100"
-              : "w-0 opacity-0 -translate-x-6 pointer-events-none"
-          }
-        `}
-      >
-        <header className="flex items-center justify-between mb-4 ml-4">
-          <h2 className="text-xl font-semibold text-indigo-900">
-            {chapter.title}
-          </h2>
-          <button
-            onClick={() => setShowOriginal(false)}
-            className="text-indigo-700 hover:text-indigo-900 mr-4"
-          >
-            ✕
-          </button>
-        </header>
+      {/* LEFT PANEL */}
+      <TextPanel
+        title={chapter.title}
+        originalParagraphs={chapter.paragraphs}
+        alternatives={chapter.alternatives}
+        defaultVersionId={leftSelectedVersionId}
+        isVisible={showLeft}
+        widthMode={visiblePanels === 2 ? "half" : "full"}
+        side="left"
+        onClose={() => setShowLeft(false)}
+        extraClasses="bg-white"
+        selectedVersionId={leftSelectedVersionId}
+        onVersionChange={setLeftSelectedVersionId}
+      />
 
-        {chapter.paragraphs.map((p) => (
-          <p key={p.id} className="mb-4 text-indigo-900 ml-4">
-            {p.text}
-          </p>
-        ))}
-      </section>
-
-      {/* ALTERNATIVE PANEL */}
-      {hasAlternatives && alternative && (
-        <section
-          className={`
-            transition-all duration-300 ease-in-out overflow-hidden
-            bg-indigo-900/5 border-l border-indigo-900/10
-            ${
-              showAlternative
-                ? visiblePanels === 2
-                  ? "w-1/2 opacity-100"
-                  : "w-full opacity-100"
-                : "w-0 opacity-0 translate-x-6 pointer-events-none"
-            }
-          `}
-        >
-          <header className="flex items-center justify-between mb-4 ml-4">
-            <h2 className="text-xl font-semibold text-indigo-900">
-              {alternative.label}
-            </h2>
-            <button
-              onClick={() => setShowAlternative(false)}
-              className="text-indigo-700 hover:text-indigo-900 mr-4"
-            >
-              ✕
-            </button>
-          </header>
-
-          {alternative.paragraphs.map((p) => (
-            <p key={p.id} className="mb-4 text-indigo-900 ml-4">
-              {p.text}
-            </p>
-          ))}
-        </section>
+      {/* RIGHT PANEL */}
+      {hasAlternatives && (
+        <TextPanel
+          title={chapter.title}
+          originalParagraphs={chapter.paragraphs}
+          alternatives={chapter.alternatives}
+          defaultVersionId={rightSelectedVersionId}
+          isVisible={showRight}
+          widthMode={visiblePanels === 2 ? "half" : "full"}
+          side="right"
+          onClose={() => setShowRight(false)}
+          diffAgainstText={leftText}
+          showDiff={showDiff} // ⚡ controlled by TopBar
+          extraClasses="bg-indigo-900/5 border-l border-indigo-900/10"
+          selectedVersionId={rightSelectedVersionId}
+          onVersionChange={setRightSelectedVersionId}
+        />
       )}
     </main>
   );

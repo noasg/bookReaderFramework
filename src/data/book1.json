@@ -11,7 +11,10 @@
           "id": "alt-1",
           "label": "Alternate Version 1",
           "paragraphs": [
-            { "id": "p-1", "text": "Alternate version of chapter one." }
+            {
+              "id": "p-1",
+              "text": "Book 1, chapter one, Alternate version of chapter one text."
+            }
           ]
         }
       ]
