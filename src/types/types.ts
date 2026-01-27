@@ -21,3 +21,21 @@ export interface ChapterAlternative {
   label: string;
   paragraphs: Paragraph[];
 }
+
+export type CommentScope = "word" | "paragraph" | "chapter";
+
+export interface Comments {
+  id: string;
+  scope: CommentScope;
+  chapterId: string;
+  version: string;
+  paragraphId?: string;
+  anchor?: {
+    startWord: number;
+    endWord: number;
+    selectedText?: string;
+  };
+  author: string;
+  content: string;
+  createdAt: string;
+}

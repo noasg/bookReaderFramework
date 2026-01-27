@@ -5,7 +5,12 @@
     {
       "id": "ch-1",
       "title": "Chapter One",
-      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter one text." }],
+      "paragraphs": [
+        {
+          "id": "p-1",
+          "text": "Book 1, chapter one text."
+        }
+      ],
       "alternatives": [
         {
           "id": "alt-1",
@@ -14,6 +19,14 @@
             {
               "id": "p-1",
               "text": "Book 1, chapter one, Alternate version of chapter one text."
+            },
+            {
+              "id": "p-2",
+              "text": "Additional paragraph in alternate version 1."
+            },
+            {
+              "id": "p-3",
+              "text": "Another paragraph in alternate version 1."
             }
           ]
         }
@@ -44,6 +57,44 @@
           ]
         }
       ]
+    }
+  ],
+
+  "comments": [
+    {
+      "id": "c-1",
+      "scope": "word",
+      "chapterId": "ch-1",
+      "version": "original",
+      "paragraphId": "p-1",
+
+      "anchor": {
+        "startWord": 0,
+        "endWord": 1,
+        "selectedText": "Book 1, chapter one text."
+      },
+
+      "author": "Editor A",
+      "content": "Opening sentence could be more engaging.",
+      "createdAt": "2026-01-27T10:15:00Z"
+    },
+
+    {
+      "id": "c-2",
+      "scope": "word",
+      "chapterId": "ch-1",
+      "version": "alt-1",
+      "paragraphId": "p-1",
+
+      "anchor": {
+        "startWord": 3,
+        "endWord": 8,
+        "selectedText": "Alternate version of chapter one"
+      },
+
+      "author": "Editor B",
+      "content": "This phrasing clearly signals the alternate narrative.",
+      "createdAt": "2026-01-27T10:18:00Z"
     }
   ]
 }

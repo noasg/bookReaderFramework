@@ -20,6 +20,9 @@ export default function RightPanel({ showDiff }: RightPanelProps) {
     activeBookId ? state.book.books[activeBookId] : null,
   );
 
+  // ✅ GET COMMENTS FROM STORE
+  const comments = useSelector((state: RootState) => state.book.comments);
+
   const chapter =
     book && openChapterId
       ? book.chapters.find((ch: Chapter) => ch.id === openChapterId)
@@ -34,6 +37,11 @@ export default function RightPanel({ showDiff }: RightPanelProps) {
   }
 
   return (
-    <ChapterPanels key={chapter.id} chapter={chapter} showDiff={showDiff} />
+    <ChapterPanels
+      key={chapter.id}
+      chapter={chapter}
+      showDiff={showDiff}
+      comments={comments ?? []} // ✅ PASS COMMENTS
+    />
   );
 }

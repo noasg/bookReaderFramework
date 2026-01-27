@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
-import type { Paragraph, ChapterAlternative } from "../types/types";
+import type { Paragraph, ChapterAlternative, Comments } from "../types/types";
 import HeaderTextPanel from "./HeaderTextPanel";
 import DiffText from "./DiffText";
+import TextWithComments from "./TextWithComments";
 
 type Version = {
   id: string;
@@ -29,6 +30,9 @@ type TextPanelProps = {
   diffAgainstText?: string;
   showDiff?: boolean;
   onToggleDiff?: () => void;
+
+  comments?: Comments[];
+  chapterId: string; // add this to pass to TextWithComments
 };
 
 export default function TextPanel({
@@ -46,6 +50,8 @@ export default function TextPanel({
   diffAgainstText,
   showDiff,
   onToggleDiff,
+  comments,
+  chapterId,
 }: TextPanelProps) {
   // Build all available versions
   const versions: Version[] = useMemo(
@@ -109,9 +115,13 @@ export default function TextPanel({
           />
         ) : (
           selectedVersion.paragraphs.map((p) => (
-            <p key={p.id} className="mb-4 text-indigo-900">
-              {p.text}
-            </p>
+            <TextWithComments
+              key={p.id}
+              paragraph={p}
+              chapterId={chapterId} // pass chapter ID
+              versionId={selectedVersion.id} // pass current version
+              comments={comments ?? []} // pass full comments array
+            />
           ))
         )}
       </div>

@@ -1,9 +1,10 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Book } from "../types/types";
+import type { Book, Comments } from "../types/types";
 import book1 from "../data/book1.json";
 import book2 from "../data/book2.json";
 
 interface BookState {
+  comments?: Comments[];
   books: Record<string, Book>;
   activeBookId: string | null;
 }
@@ -13,6 +14,7 @@ const initialState: BookState = {
     [book1.id]: book1,
     [book2.id]: book2,
   },
+  comments: book1.comments as Comments[],
   activeBookId: null,
 };
 

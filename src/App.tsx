@@ -13,7 +13,7 @@ export default function App() {
   );
 
   // Global Diff toggle
-  const [showDiff, setShowDiff] = useState(true);
+  const [showDiff, setShowDiff] = useState(false);
 
   if (!activeBookId) return <Home />;
 

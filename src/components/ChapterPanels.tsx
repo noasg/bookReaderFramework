@@ -1,17 +1,19 @@
 import { useState, useMemo, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeChapter } from "./ui/uiSlice";
-import type { Chapter } from "../types/types";
+import type { Chapter, Comments } from "../types/types";
 import TextPanel from "./TextPanel";
 
 type ChapterPanelsProps = {
   chapter: Chapter;
   showDiff: boolean; // controlled by TopBar
+  comments: Comments[];
 };
 
 export default function ChapterPanels({
   chapter,
   showDiff,
+  comments,
 }: ChapterPanelsProps) {
   const dispatch = useDispatch();
 
@@ -62,6 +64,8 @@ export default function ChapterPanels({
         extraClasses="bg-white"
         selectedVersionId={leftSelectedVersionId}
         onVersionChange={setLeftSelectedVersionId}
+        comments={comments} // 👈 pass comments here
+        chapterId={chapter.id}
       />
 
       {/* RIGHT PANEL */}
@@ -80,6 +84,8 @@ export default function ChapterPanels({
           extraClasses="bg-indigo-900/5 border-l border-indigo-900/10"
           selectedVersionId={rightSelectedVersionId}
           onVersionChange={setRightSelectedVersionId}
+          comments={comments} // 👈 pass comments here
+          chapterId={chapter.id}
         />
       )}
     </main>
