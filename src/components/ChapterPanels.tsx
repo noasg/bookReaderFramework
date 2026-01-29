@@ -1,12 +1,11 @@
-import { useState, useMemo, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { closeChapter } from "./ui/uiSlice";
+import { useMemo, useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import type { Chapter, Comments } from "../types/types";
 import TextPanel from "./TextPanel";
 
 type ChapterPanelsProps = {
   chapter: Chapter;
-  showDiff: boolean; // controlled by TopBar
+  showDiff: boolean;
   comments: Comments[];
 };
 
@@ -15,30 +14,30 @@ export default function ChapterPanels({
   showDiff,
   comments,
 }: ChapterPanelsProps) {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { bookId } = useParams<{ bookId: string }>();
 
   const [showLeft, setShowLeft] = useState(true);
   const [showRight, setShowRight] = useState(true);
 
-  // Track selected versions for each panel
   const [leftSelectedVersionId, setLeftSelectedVersionId] =
     useState("original");
   const [rightSelectedVersionId, setRightSelectedVersionId] = useState(
     chapter.alternatives?.[0]?.id ?? "original",
   );
 
-  const hasAlternatives =
-    !!chapter.alternatives && chapter.alternatives.length > 0;
+  const hasAlternatives = !!chapter.alternatives?.length;
   const visiblePanels = Number(showLeft) + Number(showRight && hasAlternatives);
 
-  // Auto-close chapter if all panels closed
+  // ✅ Update URL when all panels are closed
   useEffect(() => {
     if (!showLeft && (!hasAlternatives || !showRight)) {
-      dispatch(closeChapter());
+      // Navigate back to book URL without chapter
+      if (bookId) navigate(`/${bookId}`, { replace: true });
     }
-  }, [showLeft, showRight, hasAlternatives, dispatch]);
+  }, [showLeft, showRight, hasAlternatives, navigate, bookId]);
 
-  // Compute left panel text for diff
+  // Left panel text for diff
   const leftVersion = useMemo(() => {
     if (leftSelectedVersionId === "original") return chapter.paragraphs;
     return (
@@ -64,8 +63,9 @@ export default function ChapterPanels({
         extraClasses="bg-white"
         selectedVersionId={leftSelectedVersionId}
         onVersionChange={setLeftSelectedVersionId}
-        comments={comments} // 👈 pass comments here
+        comments={comments}
         chapterId={chapter.id}
+        hasCloseButton={false}
       />
 
       {/* RIGHT PANEL */}
@@ -80,11 +80,11 @@ export default function ChapterPanels({
           side="right"
           onClose={() => setShowRight(false)}
           diffAgainstText={leftText}
-          showDiff={showDiff} // ⚡ controlled by TopBar
-          extraClasses="bg-indigo-900/5 border-l border-indigo-900/10"
+          showDiff={showDiff}
+          extraClasses="bg-indigo-100 border-l border-indigo-900/10"
           selectedVersionId={rightSelectedVersionId}
           onVersionChange={setRightSelectedVersionId}
-          comments={comments} // 👈 pass comments here
+          comments={comments}
           chapterId={chapter.id}
         />
       )}

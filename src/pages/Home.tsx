@@ -1,14 +1,16 @@
 import { useDispatch } from "react-redux";
 import { resetUI } from "../components/ui/uiSlice";
-import { openBook } from "../features/bookSlice";
 import Button from "../components/ui/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const open = (bookId: string) => {
     dispatch(resetUI());
-    dispatch(openBook(bookId));
+    navigate(`/${bookId}`); // ✅ navigate
+    console.log(`home.tsx ->> Navigating to book: ${bookId}`);
   };
 
   return (
@@ -18,10 +20,10 @@ export default function Home() {
       </h1>
 
       <div className="flex flex-col gap-6 mb-16">
-        <Button variant="primary" onClick={() => open("book-1")}>
+        <Button variant="primary" onClick={() => open("book1")}>
           Open Book 1
         </Button>
-        <Button variant="primary" onClick={() => open("book-2")}>
+        <Button variant="primary" onClick={() => open("book2")}>
           Open Book 2
         </Button>
       </div>

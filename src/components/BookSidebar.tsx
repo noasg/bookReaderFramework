@@ -2,21 +2,20 @@ import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../store";
 import { openChapter } from "./ui/uiSlice";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function BookSidebar() {
+export default function BookSidebar({ bookId }: { bookId?: string }) {
   const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
-
-  const activeBookId = useSelector(
-    (state: RootState) => state.book.activeBookId,
-  );
+  const navigate = useNavigate();
 
   const activeChapterId = useSelector(
     (state: RootState) => state.ui.openChapterId,
   );
 
+  // ✅ Use URL prop instead of Redux activeBookId for initial render
   const book = useSelector((state: RootState) =>
-    activeBookId ? state.book.books[activeBookId] : null,
+    bookId ? state.book.books[bookId] : null,
   );
 
   if (!book) return null;
@@ -68,7 +67,10 @@ export default function BookSidebar() {
             return (
               <button
                 key={ch.id}
-                onClick={() => dispatch(openChapter(ch.id))}
+                onClick={() => {
+                  dispatch(openChapter(ch.id));
+                  if (bookId) navigate(`/${bookId}/${ch.id}`); // ✅ Chapter routing
+                }}
                 className={`
                   text-left px-3 py-2 rounded-lg transition-all
                   ${

@@ -33,6 +33,8 @@ type TextPanelProps = {
 
   comments?: Comments[];
   chapterId: string; // add this to pass to TextWithComments
+
+  hasCloseButton?: boolean;
 };
 
 export default function TextPanel({
@@ -52,6 +54,7 @@ export default function TextPanel({
   onToggleDiff,
   comments,
   chapterId,
+  hasCloseButton = true,
 }: TextPanelProps) {
   // Build all available versions
   const versions: Version[] = useMemo(
@@ -102,6 +105,7 @@ export default function TextPanel({
         onClose={onClose}
         showDiff={showDiff} // ⚡ pass boolean
         onToggleDiff={onToggleDiff} // ⚡ pass callback
+        hasCloseButton={hasCloseButton}
       />
 
       {/* CONTENT */}

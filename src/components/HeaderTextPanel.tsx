@@ -10,6 +10,7 @@ type HeaderTextPanelProps = {
   // NEW: Diff toggle
   showDiff?: boolean;
   onToggleDiff?: () => void;
+  hasCloseButton?: boolean;
 };
 
 export default function HeaderTextPanel({
@@ -20,6 +21,7 @@ export default function HeaderTextPanel({
   onClose,
   showDiff,
   onToggleDiff,
+  hasCloseButton,
 }: HeaderTextPanelProps) {
   const hasAlternatives = alternatives.length > 0;
 
@@ -54,12 +56,14 @@ export default function HeaderTextPanel({
         )}
       </div>
 
-      <button
-        onClick={onClose}
-        className="text-indigo-700 hover:text-indigo-900"
-      >
-        ✕
-      </button>
+      {hasCloseButton && (
+        <button
+          onClick={onClose}
+          className="text-indigo-700 hover:text-indigo-900"
+        >
+          ✕
+        </button>
+      )}
     </header>
   );
 }

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { closeBook } from "../features/bookSlice";
 import { resetUI } from "./ui/uiSlice";
+import { useNavigate } from "react-router-dom";
 
 type TopBarProps = {
   showDiff: boolean;
@@ -9,10 +10,12 @@ type TopBarProps = {
 
 export default function TopBar({ showDiff, onToggleDiff }: TopBarProps) {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // ✅ add navigate
 
   const goHome = () => {
     dispatch(resetUI());
     dispatch(closeBook());
+    navigate("/"); // ✅ route back to Home
   };
 
   return (
