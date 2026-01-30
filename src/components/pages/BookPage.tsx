@@ -44,7 +44,7 @@ export default function BookPage() {
   // Wait until Redux knows the book
   if (!activeBookId) return null;
 
-  console.log("");
+  // console.log("");
 
   return (
     <div className="flex flex-col h-screen">
