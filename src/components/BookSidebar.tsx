@@ -3,6 +3,8 @@ import type { RootState } from "../../store";
 import { openChapter } from "./ui/uiSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LeftArrow from "./LeftArrow";
+import RightArrow from "./RightArrow";
 
 export default function BookSidebar({ bookId }: { bookId?: string }) {
   const dispatch = useDispatch();
@@ -28,24 +30,27 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
         border-r border-indigo-900/10
         shadow-lg
         transition-all duration-300 ease-in-out
-        ${collapsed ? "w-12" : "w-64"}
+        ${collapsed ? "w-4" : "w-64"}
       `}
     >
       {/* Toggle */}
       <button
         onClick={() => setCollapsed(!collapsed)}
         className="
-          absolute -right-3 top-6
-          w-6 h-6
+          absolute -right-5 top-1/2 -translate-y-1/2
+          w-8 h-8
           rounded-full
-          bg-indigo-900 text-amber-100
+          bg-transparent
           flex items-center justify-center
-          shadow-md
-          hover:bg-indigo-800
-          transition-colors
+          border border-indigo-900/20
+          transition-transform
         "
       >
-        {collapsed ? "➡️" : "⬅️"}
+        {collapsed ? (
+          <RightArrow width={60} height={60} />
+        ) : (
+          <LeftArrow width={60} height={60} />
+        )}
       </button>
 
       {/* Content */}
