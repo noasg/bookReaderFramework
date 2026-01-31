@@ -77,11 +77,11 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
                   if (bookId) navigate(`/${bookId}/${ch.id}`); // ✅ Chapter routing
                 }}
                 className={`
-                  text-left px-3 py-2 rounded-lg transition-all
+                  text-left px-3  text-base py-2 rounded-lg transition-all
                   ${
                     isActive
-                      ? "bg-indigo-900/10 text-indigo-900 font-semibold"
-                      : "text-indigo-900 hover:bg-indigo-900/5"
+                      ? "bg-indigo-900/10 text-indigo-900 font-semibold transform translate-x-1"
+                      : "text-indigo-900 hover:bg-indigo-900/5 transform hover:translate-x-1"
                   }
                 `}
               >

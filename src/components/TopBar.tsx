@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { closeBook } from "../features/bookSlice";
 import { resetUI } from "./ui/uiSlice";
 import { useNavigate } from "react-router-dom";
+import SingleLeftArrow from "./SingleLeftArrow";
 
 type TopBarProps = {
   showDiff: boolean;
@@ -20,11 +21,13 @@ export default function TopBar({ showDiff, onToggleDiff }: TopBarProps) {
 
   return (
     <header className="h-14 px-6 flex items-center justify-between bg-[#F8F5F1] border-b border-indigo-900/10 shadow-md">
-      <button
-        onClick={goHome}
-        className="text-indigo-900 font-medium hover:text-indigo-700 transition-colors"
-      >
-        ← Back to books
+      <button onClick={goHome} className="flex items-center gap-0 group">
+        {/* Arrow slides in from right and fades in */}
+        <span className="opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mt-1">
+          <SingleLeftArrow width={30} height={30} />
+        </span>
+
+        <span className="text-[#312c85]">Back to books</span>
       </button>
 
       <button
