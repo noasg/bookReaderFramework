@@ -1,0 +1,17 @@
+[
+  {
+    "id": "book1",
+    "title": " The Adventures of Testland ",
+    "image": "images/unknownBookCover.png"
+  },
+  {
+    "id": "book2",
+    "title": "Chronicles of Light",
+    "image": "images/unknownBookCover.png"
+  },
+  {
+    "id": "book3",
+    "title": "Shadow Protocol",
+    "image": "images/unknownBookCover.png"
+  }
+]
