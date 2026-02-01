@@ -22,6 +22,7 @@ export default function BookTile({ id, title, image, onOpen }: BookTileProps) {
         transition-all
         hover:-translate-y-1
         border border-indigo-900/10
+         cursor-pointer
       "
     >
       <img
