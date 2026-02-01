@@ -43,7 +43,7 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
           bg-transparent
           flex items-center justify-center
           border border-indigo-900/20
-          transition-transform
+          transition-transform cursor-pointer
         "
       >
         {collapsed ? (
@@ -65,7 +65,7 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
           {book.title}
         </h3>
 
-        <nav className="flex flex-col gap-1">
+        <nav className="flex flex-col gap-1 ">
           {book.chapters.map((ch) => {
             const isActive = ch.id === activeChapterId;
 
@@ -77,7 +77,8 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
                   if (bookId) navigate(`/${bookId}/${ch.id}`); // ✅ Chapter routing
                 }}
                 className={`
-                  text-left px-3  text-base py-2 rounded-lg transition-all
+                  text-left px-3 text-base py-2 rounded-lg transition-all
+                  ${!isActive ? "cursor-pointer" : "cursor-default"}
                   ${
                     isActive
                       ? "bg-indigo-900/10 text-indigo-900 font-semibold transform translate-x-1"
