@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import SingleRightArrow from "./SingleRightArrow";
+import SingleLeftArrow from "./SingleLeftArrow";
 
 export type IntermediatePopUpProps = {
   isOpen: boolean;
@@ -93,14 +94,20 @@ export default function IntermediatePopUp({
           <div className="pt-4 flex justify-center">
             <button
               onClick={onGoToBook}
-              className="flex items-center gap-0 group"
+              className="flex items-center gap-1 group" // gap reduced from 2 → 1
             >
-              <span className="text-[#312c85] cursor-pointer text-lg">
+              {/* Left arrow slides in from left */}
+              <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 cursor-pointer">
+                <SingleLeftArrow width={30} height={30} />
+              </span>
+
+              {/* Text */}
+              <span className="text-[#312c85] cursor-pointer text-lg font-semibold">
                 Go to book
               </span>
 
-              {/* Arrow slides in from left and fades in */}
-              <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mt-1 cursor-pointer">
+              {/* Right arrow slides in from right */}
+              <span className="opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 cursor-pointer">
                 <SingleRightArrow width={30} height={30} />
               </span>
             </button>
