@@ -1,18 +1,32 @@
 import { useDispatch } from "react-redux";
 import { resetUI } from "../components/ui/uiSlice";
-// import Button from "../components/ui/Button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import BookTile from "../components/BookTile";
+import IntermediatePopUp from "../components/IntermediatePopUp";
 import books from "../data/books.json";
 
 export default function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [selectedBook, setSelectedBook] = useState<any>(null);
+  const [popupOpen, setPopupOpen] = useState(false);
+
   const open = (bookId: string) => {
+    const book = books.find((b) => b.id === bookId);
+    if (!book) return;
+
+    setSelectedBook(book);
+    setPopupOpen(true);
+  };
+
+  const goToBook = () => {
+    if (!selectedBook) return;
+
     dispatch(resetUI());
-    navigate(`/${bookId}`); // ✅ navigate
-    console.log(`home.tsx ->> Navigating to book: ${bookId}`);
+    navigate(`/${selectedBook.id}`);
+    console.log(`home.tsx ->> Navigating to book: ${selectedBook.id}`);
   };
 
   return (
@@ -20,15 +34,6 @@ export default function Home() {
       <h1 className="text-4xl font-semibold text-indigo-900 mb-10">
         Select a book
       </h1>
-
-      {/* <div className="flex flex-col gap-6 mb-16">
-        <Button variant="primary" onClick={() => open("book1")}>
-          Open Book 1
-        </Button>
-        <Button variant="primary" onClick={() => open("book2")}>
-          Open Book 2
-        </Button>
-      </div> */}
 
       <div className="mb-16">
         <div
@@ -47,14 +52,27 @@ export default function Home() {
               id={book.id}
               title={book.title}
               image={book.image}
-              onOpen={open}
+              onOpen={open} // ⬅️ now opens popup
             />
           ))}
         </div>
       </div>
+
       <p className="text-center max-w-xl text-indigo-900/70 italic">
         Main platform that is to be developed, part II of the roadmap
       </p>
+
+      {/* ================= POPUP ================= */}
+      {selectedBook && (
+        <IntermediatePopUp
+          isOpen={popupOpen}
+          title={selectedBook.title}
+          image={selectedBook.image}
+          description={selectedBook.description}
+          onClose={() => setPopupOpen(false)}
+          onGoToBook={goToBook}
+        />
+      )}
     </div>
   );
 }
