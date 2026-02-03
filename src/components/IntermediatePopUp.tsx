@@ -63,7 +63,7 @@ export default function IntermediatePopUp({
           <span className="font-bold text-lg">✕</span>
         </button>
 
-        {/* Image section (top) */}
+        {/* Image section (top)*/}
         <div className="w-full flex justify-center items-center pt-4">
           <div
             className="w-full flex justify-center"
