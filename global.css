@@ -29,3 +29,11 @@
 .animate-popup-out {
   animation: popup-out 0.25s ease-in;
 }
+
+comment {
+  display: inline; /* make it visible like a <span> */
+  cursor: pointer; /* clickable */
+  background-color: #fef08a;
+  border-radius: 2px;
+  padding: 0 2px;
+}

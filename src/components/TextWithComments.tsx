@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { Paragraph, Comments } from "../types/types";
 
 type TextWithCommentsProps = {
@@ -8,15 +8,38 @@ type TextWithCommentsProps = {
   comments: Comments[];
 };
 
+// Helper: parse paragraph text into parts with commentId
+function parseParagraph(paragraph: Paragraph) {
+  const parts: { text: string; commentId?: string }[] = [];
+  const commentRegex = /<comment id=['"]([^'"]+)['"]>(.*?)<\/comment>/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = commentRegex.exec(paragraph.text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push({ text: paragraph.text.slice(lastIndex, match.index) });
+    }
+    parts.push({ text: match[2], commentId: match[1] });
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < paragraph.text.length) {
+    parts.push({ text: paragraph.text.slice(lastIndex) });
+  }
+
+  return parts;
+}
+
 export default function TextWithComments({
   paragraph,
   chapterId,
   versionId,
   comments,
 }: TextWithCommentsProps) {
-  const [activeCommentId, setActiveCommentId] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeCommentId, setActiveCommentId] = useState<string | null>(null);
 
+  // Close popup on click outside
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (
@@ -30,6 +53,7 @@ export default function TextWithComments({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // All comments for this paragraph
   const paragraphComments = comments.filter(
     (c) =>
       c.chapterId === chapterId &&
@@ -38,75 +62,34 @@ export default function TextWithComments({
       c.scope === "word",
   );
 
-  const words = paragraph.text.split(" ");
-
-  type Block = {
-    text: string;
-    commentIds: string[];
-    startIdx: number;
-    endIdx: number;
-  };
-
-  const blocks: Block[] = [];
-  let idx = 0;
-
-  while (idx < words.length) {
-    const coveringComment = paragraphComments.find(
-      (c) => c.anchor && idx >= c.anchor.startWord && idx <= c.anchor.endWord,
-    );
-
-    if (coveringComment && coveringComment.anchor) {
-      const start = coveringComment.anchor.startWord;
-      const end = coveringComment.anchor.endWord;
-      const text = words.slice(start, end + 1).join(" ");
-      blocks.push({
-        text,
-        commentIds: paragraphComments
-          .filter(
-            (c) =>
-              c.anchor &&
-              !(c.anchor.endWord < start || c.anchor.startWord > end),
-          )
-          .map((c) => c.id),
-        startIdx: start,
-        endIdx: end,
-      });
-      idx = end + 1;
-    } else {
-      blocks.push({
-        text: words[idx],
-        commentIds: [],
-        startIdx: idx,
-        endIdx: idx,
-      });
-      idx++;
-    }
-  }
+  const parts = parseParagraph(paragraph);
 
   return (
-    <div ref={containerRef} className="relative mb-4 text-indigo-900 leading-7">
-      {blocks.map((block, i) => {
-        if (block.commentIds.length === 0)
-          return <span key={i}>{block.text} </span>;
+    <div ref={containerRef} className="relative mb-4 text-black leading-7">
+      {parts.map((part, i) => {
+        if (!part.commentId) {
+          return (
+            <span key={i} dangerouslySetInnerHTML={{ __html: part.text }} />
+          );
+        }
 
-        const isActive = activeCommentId === block.commentIds[0];
-        const popupComments = paragraphComments.filter((c) =>
-          block.commentIds.includes(c.id),
+        // Get all comments covering this commentId
+        const popupComments = paragraphComments.filter(
+          (c) => c.id === part.commentId,
         );
+        const isActive = activeCommentId === part.commentId;
 
         return (
-          <span key={i} className="relative ">
+          <span key={i} className="relative">
             <span
               className={`bg-yellow-200 rounded px-0.5 cursor-pointer ${
                 isActive ? "bg-yellow-300" : ""
               }`}
               onClick={() =>
-                setActiveCommentId(isActive ? null : block.commentIds[0])
+                setActiveCommentId(isActive ? null : part.commentId || null)
               }
-            >
-              {block.text}{" "}
-            </span>
-
+              dangerouslySetInnerHTML={{ __html: part.text }}
+            />
             {isActive && (
               <div className="absolute z-50 top-full left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-sm">
                 <div className="space-y-2">

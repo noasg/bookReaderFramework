@@ -81,7 +81,7 @@ export default function ChapterPanels({
           onClose={() => setShowRight(false)}
           diffAgainstText={leftText}
           showDiff={showDiff}
-          extraClasses="bg-indigo-100 border-l border-indigo-900/10"
+          extraClasses="bg-white border-l border-indigo-900/10"
           selectedVersionId={rightSelectedVersionId}
           onVersionChange={setRightSelectedVersionId}
           comments={comments}
