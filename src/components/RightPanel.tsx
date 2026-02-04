@@ -3,11 +3,7 @@ import type { RootState } from "../../store";
 import ChapterPanels from "./ChapterPanels";
 import type { Chapter } from "../types/types";
 
-type RightPanelProps = {
-  showDiff: boolean;
-};
-
-export default function RightPanel({ showDiff }: RightPanelProps) {
+export default function RightPanel() {
   const activeBookId = useSelector(
     (state: RootState) => state.book.activeBookId,
   );
@@ -40,7 +36,6 @@ export default function RightPanel({ showDiff }: RightPanelProps) {
     <ChapterPanels
       key={chapter.id}
       chapter={chapter}
-      showDiff={showDiff}
       comments={comments ?? []} // ✅ PASS COMMENTS
     />
   );

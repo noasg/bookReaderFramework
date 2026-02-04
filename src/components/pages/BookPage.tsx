@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import TopBar from "../TopBar";
@@ -23,8 +23,6 @@ export default function BookPage() {
     (state: RootState) => state.ui.openChapterId,
   );
 
-  const [showDiff, setShowDiff] = useState(false);
-
   // Sync URL → Redux
   useEffect(() => {
     if (bookId && bookId !== activeBookId) {
@@ -48,11 +46,11 @@ export default function BookPage() {
 
   return (
     <div className="flex flex-col h-screen">
-      <TopBar showDiff={showDiff} onToggleDiff={() => setShowDiff(!showDiff)} />
+      <TopBar />
       <div className="flex flex-1">
         {/* Pass activeBookId to sidebar */}
         <BookSidebar bookId={activeBookId} />
-        <RightPanel showDiff={showDiff} />
+        <RightPanel />
       </div>
     </div>
   );

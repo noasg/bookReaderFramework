@@ -5,13 +5,13 @@ import TextPanel from "./TextPanel";
 
 type ChapterPanelsProps = {
   chapter: Chapter;
-  showDiff: boolean;
+
   comments: Comments[];
 };
 
 export default function ChapterPanels({
   chapter,
-  showDiff,
+
   comments,
 }: ChapterPanelsProps) {
   const navigate = useNavigate();
@@ -80,7 +80,6 @@ export default function ChapterPanels({
           side="right"
           onClose={() => setShowRight(false)}
           diffAgainstText={leftText}
-          showDiff={showDiff}
           extraClasses="bg-white border-l border-indigo-900/10"
           selectedVersionId={rightSelectedVersionId}
           onVersionChange={setRightSelectedVersionId}
