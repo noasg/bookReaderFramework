@@ -1,35 +1,35 @@
 [
   {
-    "label": "Gri",
+    "label": "color",
     "description": "scrisurile/ corecturile/ însemnările/ comentariile în creion în manuscrise, făcute de Camil Petrescu; reproducerea manuscriselor se face în variată anastatică, fără a interveni în aspectele care țin de ortografie.",
     "color": "#808080"
   },
   {
-    "label": "Albastru",
+    "label": "color",
+    "description": "intervenție tipografică (editorială) făcută într-o carte publicat.",
+    "color": "rgba(88, 41, 0, 0.5)"
+  },
+  {
+    "label": "color",
+    "description": "cuvânt, sintagmă, structură sintactică prezentă într-o variantă (de manuscris/ de dactilogramă), dar eliminată în cursul prelucrărilor succesive de către Camil Petrescu și inexistentă într-o versiune tipărită.",
+    "color": "rgba(75, 83, 32, 0.5)"
+  },
+  {
+    "label": "color",
+    "description": "cuvânt, sintagmă, structură sintactică a cărei topică variază de la o versiune la alta a prelucrărilor succesive de către Camil Petrescu și rămasă într-o versiune tipărită.",
+    "color": "#68C3A3"
+  },
+  {
+    "label": "<span style=\"color: #276CF5;\">Cuvânt</span>",
     "description": "scris/ corecturi/ întregiri de cuvinte/ însemnări/ adăugiri/ interpolări/ comentarii în stilou de această culoare, făcute de Camil Petrescu în manuscrise/ dactilograme.",
     "color": "#276CF5"
   },
   {
-    "label": "Maro",
-    "description": "intervenție tipografică (editorială) făcută într-o carte publicat.",
-    "color": "#A52A2A"
-  },
-  {
-    "label": "Verde",
-    "description": "cuvânt, sintagmă, structură sintactică prezentă într-o variantă (de manuscris/ de dactilogramă), dar eliminată în cursul prelucrărilor succesive de către Camil Petrescu și inexistentă într-o versiune tipărită.",
-    "color": "#4B5320"
-  },
-  {
-    "label": "Kaki",
-    "description": "cuvânt, sintagmă, structură sintactică a cărei topică variază de la o versiune la alta a prelucrărilor succesive de către Camil Petrescu și rămasă într-o versiune tipărită.",
-    "color": "#F0E68C"
-  },
-  {
-    "label": "Literă / literă",
+    "label": "<span style=\"text-decoration: line-through;\">Literă / literă</span>",
     "description": "majuscula/ minuscula a fost înlocuită de Camil Petrescu"
   },
   {
-    "label": "Cuvânt",
+    "label": "<span style=\"text-decoration: line-through;\">Cuvânt</span>",
     "description": "termenul a fost eliminat de Camil Petrescu"
   },
   {
