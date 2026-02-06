@@ -1,33 +1,41 @@
 import { useDispatch } from "react-redux";
 import { resetUI } from "../components/ui/uiSlice";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import BookTile from "../components/BookTile";
-import IntermediatePopUp from "../components/IntermediatePopUp";
+// import IntermediatePopUp from "../components/IntermediatePopUp";
 import books from "../data/books.json";
 
 export default function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [selectedBook, setSelectedBook] = useState<any>(null);
-  const [popupOpen, setPopupOpen] = useState(false);
+  // const [selectedBook, setSelectedBook] = useState<any>(null);
+  // const [popupOpen, setPopupOpen] = useState(false);
 
-  const open = (bookId: string) => {
-    const book = books.find((b) => b.id === bookId);
-    if (!book) return;
+  // const open = (bookId: string) => {
+  //   const book = books.find((b) => b.id === bookId);
+  //   if (!book) return;
 
-    setSelectedBook(book);
-    setPopupOpen(true);
-  };
+  //   setSelectedBook(book);
+  //   setPopupOpen(true);
+  // };
 
-  const goToBook = () => {
-    if (!selectedBook) return;
+  const goToBook = (bookId: string) => {
+    // if (!selectedBook) return;
 
     dispatch(resetUI());
-    navigate(`/${selectedBook.id}`);
-    console.log(`home.tsx ->> Navigating to book: ${selectedBook.id}`);
+    navigate(`/${bookId}`);
+    console.log(`home.tsx ->> Navigating to book: ${bookId}`);
   };
+
+  // const goToBook = () => {
+  //   // if (!selectedBook) return;
+
+  //   dispatch(resetUI());
+  //   navigate(`/${selectedBook.id}`);
+  //   console.log(`home.tsx ->> Navigating to book: ${selectedBook.id}`);
+  // };
 
   return (
     <div className="min-h-screen bg-[#F8F5F1] flex flex-col items-center justify-center px-6">
@@ -52,7 +60,8 @@ export default function Home() {
               id={book.id}
               title={book.title}
               image={book.image}
-              onOpen={open} // ⬅️ now opens popup
+              onOpen={() => goToBook(book.id)} // ⬅️ now opens popup
+              // onOpen={open} // ⬅️ now opens popup
             />
           ))}
         </div>
@@ -63,7 +72,7 @@ export default function Home() {
       </p>
 
       {/* ================= POPUP ================= */}
-      {selectedBook && (
+      {/* {selectedBook && (
         <IntermediatePopUp
           isOpen={popupOpen}
           title={selectedBook.title}
@@ -72,7 +81,7 @@ export default function Home() {
           onClose={() => setPopupOpen(false)}
           onGoToBook={goToBook}
         />
-      )}
+      )} */}
     </div>
   );
 }

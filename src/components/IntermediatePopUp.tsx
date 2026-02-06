@@ -74,7 +74,7 @@ export default function IntermediatePopUp({
               src={image}
               alt={title}
               className="object-cover rounded-lg shadow"
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: "100%", height: "auto", maxWidth: "100%" }}
             />
           </div>
         </div>
