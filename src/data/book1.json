@@ -5,14 +5,18 @@
     {
       "id": "ch-1",
       "title": "Capitolul I",
-      "paragraphs": [
-        {
-          "id": "p-1",
-          "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi <comment id='c-7'>Teodor Văcărescu</comment>, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Când auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: #68C3A3;\">prin oameni de taină.</span> <div style=\"text-align:right; \"><b>(Textul cu cea mai mare autoritate și acuratețe lingvistică, fiind lucrat în cadrul I.I.T.L. G. Călinescu, Academia Română, București)</b></div>"
-        }
-      ],
 
       "alternatives": [
+        {
+          "id": "original",
+          "label": "Original",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi <comment id='c-7'>Teodor Văcărescu</comment>, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Când auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: #68C3A3;\">prin oameni de taină.</span> <div style=\"text-align:right;\"><b>(Textul cu cea mai mare autoritate și acuratețe lingvistică, fiind lucrat în cadrul I.I.T.L. G. Călinescu, Academia Română, București)</b></div>"
+            }
+          ]
+        },
         {
           "id": "alt-1",
           "label": "Versiune 2",
@@ -79,12 +83,18 @@
     {
       "id": "ch-2",
       "title": "Capitolul II",
-      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter two text." }]
-    },
-    {
-      "id": "ch-3",
-      "title": "Capitolul III",
-      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter three text." }]
+      "alternatives": [
+        {
+          "id": "original",
+          "label": "Original",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "text capitol 2, varianta originală"
+            }
+          ]
+        }
+      ]
     }
   ],
 
@@ -196,7 +206,7 @@
       "id": "c-7",
       "scope": "word",
       "chapterId": "ch-1",
-      "version": "ch-1",
+      "version": "original",
       "paragraphId": "p-1",
       "anchor": {
         "startWord": 3,

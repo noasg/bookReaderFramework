@@ -1,22 +1,14 @@
 import { useMemo, useState } from "react";
-import type { Paragraph, ChapterAlternative, Comments } from "../types/types";
+import type { ChapterAlternative, Comments } from "../types/types";
 import HeaderTextPanel from "./HeaderTextPanel";
 import DiffText from "./DiffText";
 import TextWithComments from "./TextWithComments";
 
-type Version = {
-  id: string;
-  paragraphs: Paragraph[];
-};
-
 type TextPanelProps = {
   title: string;
-  originalParagraphs: Paragraph[];
-  alternatives?: ChapterAlternative[];
-
+  alternatives: ChapterAlternative[];
   defaultVersionId: string;
 
-  // Controlled selection (optional)
   selectedVersionId?: string;
   onVersionChange?: (id: string) => void;
 
@@ -32,15 +24,14 @@ type TextPanelProps = {
   onToggleDiff?: () => void;
 
   comments?: Comments[];
-  chapterId: string; // add this to pass to TextWithComments
+  chapterId: string;
 
   hasCloseButton?: boolean;
 };
 
 export default function TextPanel({
   title,
-  originalParagraphs,
-  alternatives = [],
+  alternatives,
   defaultVersionId,
   selectedVersionId: selectedVersionIdProp,
   onVersionChange,
@@ -56,29 +47,17 @@ export default function TextPanel({
   chapterId,
   hasCloseButton = true,
 }: TextPanelProps) {
-  // Build all available versions
-  const versions: Version[] = useMemo(
-    () => [
-      { id: "original", paragraphs: originalParagraphs },
-      ...alternatives.map((alt) => ({
-        id: alt.id,
-        paragraphs: alt.paragraphs,
-      })),
-    ],
-    [originalParagraphs, alternatives],
-  );
-
-  // Internal state fallback if controlled props not provided
   const [internalSelectedVersionId, setInternalSelectedVersionId] =
     useState(defaultVersionId);
-
   const selectedVersionId = selectedVersionIdProp ?? internalSelectedVersionId;
   const setSelectedVersionIdFn =
     onVersionChange ?? setInternalSelectedVersionId;
 
-  // Safety fallback
-  const selectedVersion =
-    versions.find((v) => v.id === selectedVersionId) ?? versions[0];
+  const selectedVersion = useMemo(
+    () =>
+      alternatives.find((a) => a.id === selectedVersionId) ?? alternatives[0],
+    [alternatives, selectedVersionId],
+  );
 
   return (
     <section
@@ -96,19 +75,17 @@ export default function TextPanel({
         ${extraClasses}
       `}
     >
-      {/* HEADER */}
       <HeaderTextPanel
         title={title}
         selectedVersionId={selectedVersionId}
         onVersionChange={setSelectedVersionIdFn}
         alternatives={alternatives}
         onClose={onClose}
-        showDiff={showDiff} // ⚡ pass boolean
-        onToggleDiff={onToggleDiff} // ⚡ pass callback
+        showDiff={showDiff}
+        onToggleDiff={onToggleDiff}
         hasCloseButton={hasCloseButton}
       />
 
-      {/* CONTENT */}
       <div className="px-4 py-4 space-y-4">
         {diffAgainstText && showDiff ? (
           <DiffText
@@ -122,9 +99,9 @@ export default function TextPanel({
             <TextWithComments
               key={p.id}
               paragraph={p}
-              chapterId={chapterId} // pass chapter ID
-              versionId={selectedVersion.id} // pass current version
-              comments={comments ?? []} // pass full comments array
+              chapterId={chapterId}
+              versionId={selectedVersion.id}
+              comments={comments ?? []}
             />
           ))
         )}

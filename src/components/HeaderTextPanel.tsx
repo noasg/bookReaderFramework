@@ -7,7 +7,6 @@ type HeaderTextPanelProps = {
   alternatives?: ChapterAlternative[];
   onClose: () => void;
 
-  // NEW: Diff toggle
   showDiff?: boolean;
   onToggleDiff?: () => void;
   hasCloseButton?: boolean;
@@ -36,7 +35,7 @@ export default function HeaderTextPanel({
             onChange={(e) => onVersionChange(e.target.value)}
             className="text-sm rounded-md border border-indigo-900/20 bg-white px-2 py-1 text-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            <option value="original">Original</option>
+            {/* ✅ Remove the manual "Original" option */}
             {alternatives.map((alt) => (
               <option key={alt.id} value={alt.id}>
                 {alt.label}
@@ -45,7 +44,6 @@ export default function HeaderTextPanel({
           </select>
         )}
 
-        {/* NEW: Diff toggle button */}
         {onToggleDiff && (
           <button
             onClick={onToggleDiff}

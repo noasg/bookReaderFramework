@@ -9,10 +9,20 @@ interface BookState {
   activeBookId: string | null;
 }
 
+const transformBook = (book: any): Book => ({
+  ...book,
+  chapters: book.chapters.map((chapter: any) => ({
+    id: chapter.id,
+    title: chapter.title,
+    paragraphs: chapter.alternatives?.[0]?.paragraphs || [],
+    alternatives: chapter.alternatives,
+  })),
+});
+
 const initialState: BookState = {
   books: {
-    [book1.id]: book1,
-    [book2.id]: book2,
+    [book1.id]: transformBook(book1),
+    [book2.id]: transformBook(book2),
   },
   comments: book1.comments as Comments[],
   activeBookId: null,

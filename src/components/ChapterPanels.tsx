@@ -5,13 +5,11 @@ import TextPanel from "./TextPanel";
 
 type ChapterPanelsProps = {
   chapter: Chapter;
-
   comments: Comments[];
 };
 
 export default function ChapterPanels({
   chapter,
-
   comments,
 }: ChapterPanelsProps) {
   const navigate = useNavigate();
@@ -20,49 +18,48 @@ export default function ChapterPanels({
   const [showLeft, setShowLeft] = useState(true);
   const [showRight, setShowRight] = useState(true);
 
-  const [leftSelectedVersionId, setLeftSelectedVersionId] =
-    useState("original");
-  const [rightSelectedVersionId, setRightSelectedVersionId] = useState(
-    chapter.alternatives?.[0]?.id ?? "original",
+  // ✅ Always use first alternative as left panel
+  const [leftSelectedVersionId, setLeftSelectedVersionId] = useState(
+    (chapter.alternatives ?? [])[0]?.id,
   );
 
-  const hasAlternatives = !!chapter.alternatives?.length;
+  // Right panel defaults to second alternative if it exists, otherwise fallback to first
+  const [rightSelectedVersionId, setRightSelectedVersionId] = useState(
+    (chapter.alternatives ?? [])[1]?.id ?? (chapter.alternatives ?? [])[0]?.id,
+  );
+
+  const hasAlternatives = (chapter.alternatives ?? []).length > 1; // need at least two versions for right panel
   const visiblePanels = Number(showLeft) + Number(showRight && hasAlternatives);
 
-  // ✅ Update URL when all panels are closed
+  // Navigate back when all panels are closed
   useEffect(() => {
     if (!showLeft && (!hasAlternatives || !showRight)) {
-      // Navigate back to book URL without chapter
       if (bookId) navigate(`/${bookId}`, { replace: true });
     }
   }, [showLeft, showRight, hasAlternatives, navigate, bookId]);
 
   // Left panel text for diff
-  const leftVersion = useMemo(() => {
-    if (leftSelectedVersionId === "original") return chapter.paragraphs;
-    return (
-      chapter.alternatives?.find((a) => a.id === leftSelectedVersionId)
-        ?.paragraphs ?? chapter.paragraphs
+  const leftVersionText = useMemo(() => {
+    const leftVersion = chapter.alternatives?.find(
+      (a) => a.id === leftSelectedVersionId,
     );
-  }, [leftSelectedVersionId, chapter]);
-
-  const leftText = leftVersion.map((p) => p.text).join("\n");
+    return leftVersion?.paragraphs.map((p) => p.text).join("\n") ?? "";
+  }, [leftSelectedVersionId, chapter.alternatives]);
 
   return (
     <main className="flex-1 flex overflow-hidden border-l border-indigo-900/10">
       {/* LEFT PANEL */}
       <TextPanel
         title={chapter.title}
-        originalParagraphs={chapter.paragraphs}
-        alternatives={chapter.alternatives}
+        alternatives={chapter.alternatives ?? []}
         defaultVersionId={leftSelectedVersionId}
+        selectedVersionId={leftSelectedVersionId}
+        onVersionChange={setLeftSelectedVersionId}
         isVisible={showLeft}
         widthMode={visiblePanels === 2 ? "half" : "full"}
         side="left"
         onClose={() => setShowLeft(false)}
         extraClasses="bg-white"
-        selectedVersionId={leftSelectedVersionId}
-        onVersionChange={setLeftSelectedVersionId}
         comments={comments}
         chapterId={chapter.id}
         hasCloseButton={false}
@@ -72,17 +69,16 @@ export default function ChapterPanels({
       {hasAlternatives && (
         <TextPanel
           title={chapter.title}
-          originalParagraphs={chapter.paragraphs}
-          alternatives={chapter.alternatives}
+          alternatives={chapter.alternatives ?? []}
           defaultVersionId={rightSelectedVersionId}
+          selectedVersionId={rightSelectedVersionId}
+          onVersionChange={setRightSelectedVersionId}
           isVisible={showRight}
           widthMode={visiblePanels === 2 ? "half" : "full"}
           side="right"
           onClose={() => setShowRight(false)}
-          diffAgainstText={leftText}
+          diffAgainstText={leftVersionText}
           extraClasses="bg-white border-l border-indigo-900/10"
-          selectedVersionId={rightSelectedVersionId}
-          onVersionChange={setRightSelectedVersionId}
           comments={comments}
           chapterId={chapter.id}
         />
