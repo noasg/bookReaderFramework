@@ -5,17 +5,18 @@
     {
       "id": "ch-1",
       "title": "Another Beginning",
-      "paragraphs": [{ "id": "p-10", "text": "Book 2 starts differently." }]
-    },
-    {
-      "id": "ch-2",
-      "title": "Another Beginning",
-      "paragraphs": [{ "id": "p-10", "text": "Book 2 starts differently." }]
-    },
-    {
-      "id": "ch-3",
-      "title": "Another Beginning",
-      "paragraphs": [{ "id": "p-10", "text": "Book 2 starts differently." }]
+      "alternatives": [
+        {
+          "id": "original",
+          "label": "Original",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Book 2 starts differently."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
