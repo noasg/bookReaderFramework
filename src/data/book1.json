@@ -8,7 +8,7 @@
       "paragraphs": [
         {
           "id": "p-1",
-          "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Când auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, nu mai șovăiră nici ei. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: rgba(75, 83, 32, 0.5);\">prin oameni de taină.</span> <span style=\"text-align:right; \"><b>(Textul cu cea mai mare autoritate și acuratețe lingvistică, fiind lucrat în cadrul I.I.T.L. G. Călinescu, Academia Română, București)</b></span>"
+          "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Când auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: #68C3A3;\">prin oameni de taină.</span> <div style=\"text-align:right; \"><b>(Textul cu cea mai mare autoritate și acuratețe lingvistică, fiind lucrat în cadrul I.I.T.L. G. Călinescu, Academia Română, București)</b></div>"
         }
       ],
       "alternatives": [
@@ -18,7 +18,7 @@
           "paragraphs": [
             {
               "id": "p-1",
-              "text": "<span style=\"color: #276CF5;\">O</span><span style=\"text-decoration: line-through;\">o</span>amenii nu erau totuși liniștiți. <span style=\"color: #276CF5;\">De la București, mai toți toți marii boieri în frunte cu Banul Brâncoveanu și Theodor Văcărescu fugiseră la Brașov.</span> Umblau tot felul de <comment id='c-1'><span style=\"text-decoration: line-through;\">svonuri</span></comment>  <span style=\"color: #276CF5;\">vești</span> de se încrețea carnea pe om. Acum întreaga oaste a lui Tudor trecuse de Craiova și se apropia, cu mult popor după ea, de Olt. Când auziră boiernașii de pe Topolog că <span style=\"text-decoration: line-through;\">chiar</span> fug cu spaimă chiar oamenii Căimăcămiei (cică Vodă Șuțu murise otrăvit<sup>7</sup>/ de proprii lui fii, deoarece fiind rugat de aceștia să facă parte din Eterie, refuzase și acum era prime<span style=\"color: #276CF5;\">jdia</span> ca el să dea pe față <span style=\"background-color: rgba(75, 83, 32, 0.5);\">prin oamenii de taină</span> totul la Istambul, Devletului), <span style=\"background-color: rgba(104, 195, 163);, 1);\">boern<span style=\"color: #276CF5;\">așii</span> de pe Olt nu mai șovăiră.</span> </span> <br/><br/><div style=\"text-align:left; \"><b>(Biblioteca Academiei Române, Arhiva „Camil Petrescu“, dosarul I, A1, capitolul „Fuga din fața revoluției“, din romanul <i>Un om între oameni</i>, vol. I, cartea 1-a, varianta 1, p. 7-8). </b></div>"
+              "text": "<span style=\"color: #276CF5;\">O</span><span style=\"text-decoration: line-through;\">o</span>amenii nu erau totuși liniștiți. <span style=\"color: #276CF5;\">De la București, mai toți toți marii boieri în frunte cu Banul Brâncoveanu și Theodor Văcărescu fugiseră la Brașov.</span> Umblau tot felul de <comment id='c-1'><span style=\"text-decoration: line-through;\">svonuri</span></comment>  <span style=\"color: #276CF5;\">vești</span> de se încrețea carnea pe om. Acum întreaga oaste a lui Tudor trecuse de Craiova și se apropia, cu mult popor după ea, de Olt. Când auziră boiernașii de pe Topolog că <span style=\"text-decoration: line-through;\">chiar</span> fug cu spaimă chiar oamenii Căimăcămiei (cică Vodă Șuțu murise otrăvit<sup>7</sup>/ de proprii lui fii, deoarece fiind rugat de aceștia să facă parte din Eterie, refuzase și acum era prime<span style=\"color: #276CF5;\">jdia</span> ca el să dea pe <comment id='c-3'>față</comment> <span style=\"background-color:rgba(104, 195, 163);\">prin oamenii de taină</span> totul la Istambul, Devletului), <span style=\"background-color: rgba(104, 195, 163);, 1);\">boern<span style=\"color: #276CF5;\">așii</span> de pe Olt nu mai șovăiră.</span> </span> <div style=\"text-align:left; \"><b>(Biblioteca Academiei Române, Arhiva „Camil Petrescu“, dosarul I, A1, capitolul „Fuga din fața revoluției“, din romanul <i>Un om între oameni</i>, vol. I, cartea 1-a, varianta 1, p. 7-8). </b></div>"
             }
           ]
         },
@@ -28,7 +28,7 @@
           "paragraphs": [
             {
               "id": "p-1",
-              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brîncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, nu mai șovăiră nici ei. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: rgba(75, 83, 32, 0.5);\">prin oameni de taină.</span> <br/><br/><div style=\"text-align:left; \"><b>(<i>Un om între oameni</i>, vol. I, București, Editura Tineretului, 1953, p. 8).</b></div> "
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Br<span style=\"color: #FFA500;\">î</span>ncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: #68C3A3;\">prin oameni de taină.</span> <div style=\"text-align:right; \"><b>(<i>Un om între oameni</i>, vol. I, București, Editura Tineretului, 1953, p. 8).</b></div> "
             }
           ]
         },
@@ -38,7 +38,7 @@
           "paragraphs": [
             {
               "id": "p-1",
-              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniștiți. De la București, mai toţi marii boierii — în frunte cu banul Brîncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, nu mai șovăiră nici ei. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: rgba(75, 83, 32, 0.5);\">prin oameni de taină.</span> <br/><br/><div style=\"text-align:left; \"><b>(<i>Un om între oameni</i>, vol. I, București, Editura Tineretului, 1959, p. 8).</b></div> "
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniștiți. De la București, mai toţi marii boierii — în frunte cu banul Br<span style=\"color: #FFA500;\">î</span>ncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: #68C3A3;\">prin oameni de taină.</span> <div style=\"text-align:right; \"><b>(<i>Un om între oameni</i>, vol. I, București, Editura Tineretului, 1959, p. 8).</b></div> "
             }
           ]
         },
@@ -48,7 +48,7 @@
           "paragraphs": [
             {
               "id": "p-1",
-              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu7/ mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, nu mai șovăiră nici ei. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, prin <span style=\"background-color: rgba(75, 83, 32, 0.5);\">oameni de taină.</span> <div style=\"text-align:left; \"><b>(Camil Petrescu, <i>Opere</i>, vol. IV, <i>Un om între oameni</i>. I, Ediție îngrijită de Liviu Călin, București, Editura Minerva, 1982, p. 13-14)</b></div> "
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu<sup>13</sup>/ mult popor după ea, de Olt. C<span style=\"color: #FFA500;\">î</span>nd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, prin <span style=\"background-color: #68C3A3;\">oameni de taină.</span> <div style=\"text-align:left; \"><b>(Camil Petrescu, <i>Opere</i>, vol. IV, <i>Un om între oameni</i>. I, Ediție îngrijită de Liviu Călin, București, Editura Minerva, 1982, p. 13-14)</b></div> "
             }
           ]
         }
@@ -58,6 +58,11 @@
       "id": "ch-2",
       "title": "Chapter Two",
       "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter two text." }]
+    },
+    {
+      "id": "ch-3",
+      "title": "Chapter Three",
+      "paragraphs": [{ "id": "p-1", "text": "Book 1, chapter three text." }]
     }
   ],
 
@@ -79,7 +84,6 @@
       "content": "tăiat cu cerneală albastră de Camil Petrescu.",
       "createdAt": "2026-01-27T10:15:00Z"
     },
-
     {
       "id": "c-2",
       "scope": "word",
@@ -95,6 +99,23 @@
 
       "author": "Editor B",
       "content": "This phrasing clearly signals the alternate narrative.",
+      "createdAt": "2026-01-27T10:18:00Z"
+    },
+    {
+      "id": "c-3",
+      "scope": "word",
+      "chapterId": "ch-1",
+      "version": "alt-1",
+      "paragraphId": "p-1",
+
+      "anchor": {
+        "startWord": 3,
+        "endWord": 8,
+        "selectedText": "Alternate version of chapter one"
+      },
+
+      "author": "Camil Petrescu",
+      "content": "a adaugat cu stilou albastru sedila sub 't'",
       "createdAt": "2026-01-27T10:18:00Z"
     }
   ]

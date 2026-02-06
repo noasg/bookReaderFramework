@@ -11,6 +11,16 @@
   },
   {
     "label": "color",
+    "description": "corecturi/ interpolări/ întregiri de cuvinte, făcute cu creion de această culoare de către un redactor de carte.",
+    "color": "rgba(255, 0, 0, 0.5)"
+  },
+  {
+    "label": "color",
+    "description": "literă/ grup de litere care variază faţă de cea mai veche formă identificată.",
+    "color": "rgba(128, 0, 128, 0.5)"
+  },
+  {
+    "label": "color",
     "description": "cuvânt, sintagmă, structură sintactică prezentă într-o variantă (de manuscris/ de dactilogramă), dar eliminată în cursul prelucrărilor succesive de către Camil Petrescu și inexistentă într-o versiune tipărită.",
     "color": "rgba(75, 83, 32, 0.5)"
   },
@@ -20,24 +30,37 @@
     "color": "#68C3A3"
   },
   {
+    "label": "<span style=\"color: #FFA500;\">Cuvânt</span>",
+    "description": "intervenție tipografică (editorială) făcută într-o carte publicată.",
+    "color": "rgba(255, 165, 0, 1)"
+  },
+  {
     "label": "<span style=\"color: #276CF5;\">Cuvânt</span>",
     "description": "scris/ corecturi/ întregiri de cuvinte/ însemnări/ adăugiri/ interpolări/ comentarii în stilou de această culoare, făcute de Camil Petrescu în manuscrise/ dactilograme.",
     "color": "#276CF5"
   },
   {
+    "label": "<span style=\"color: rgba(255, 165, 0, 1)\">Literă / literă</span>",
+    "description": "majuscula/ minuscula a fost înlocuită de Camil Petrescu."
+  },
+  {
     "label": "<span style=\"text-decoration: line-through;\">Literă / literă</span>",
-    "description": "majuscula/ minuscula a fost înlocuită de Camil Petrescu"
+    "description": "majuscula/ minuscula a fost înlocuită de Camil Petrescu."
+  },
+  {
+    "label": "<span style=\"text-decoration: line-through; color: red;\">Literă / literă</span>",
+    "description": "majuscula/ minuscula a fost înlocuită de unul dintre redactorii de carte."
   },
   {
     "label": "<span style=\"text-decoration: line-through;\">Cuvânt</span>",
-    "description": "termenul a fost eliminat de Camil Petrescu"
+    "description": "termenul a fost eliminat de Camil Petrescu."
   },
   {
     "label": "?",
-    "description": "cuvânt ilizibil într-un manuscris"
+    "description": "cuvânt ilizibil într-un manuscris."
   },
   {
     "label": "[!]",
-    "description": "așezat după cuvânt, înseamnă lecțiune incertă într-un manuscris"
+    "description": "așezat după cuvânt, înseamnă lecțiune incertă într-un manuscris."
   }
 ]
