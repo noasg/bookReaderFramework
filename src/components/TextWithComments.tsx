@@ -78,7 +78,12 @@ export default function TextWithComments({
           (c) => c.id === part.commentId,
         );
         const isActive = activeCommentId === part.commentId;
-
+        console.log(
+          "Rendering part:",
+          part.text,
+          "with commentId:",
+          part.commentId,
+        );
         return (
           <span key={i} className="relative">
             <span
@@ -91,20 +96,31 @@ export default function TextWithComments({
               dangerouslySetInnerHTML={{ __html: part.text }}
             />
             {isActive && (
-              <div className="absolute z-50 top-full left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-sm">
-                <div className="space-y-2">
-                  {popupComments.map((c) => (
-                    <div key={c.id}>
-                      <div className="font-semibold text-indigo-900">
-                        {c.author}
+              <>
+                {console.log(
+                  "Popup displayed for commentId:",
+                  part.commentId,
+                  "Popup content:",
+                  popupComments.map((c) => c.content),
+                )}
+
+                <div className="absolute z-50 top-full left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-sm">
+                  <div className="space-y-2">
+                    {popupComments.map((c) => (
+                      <div key={c.id}>
+                        <div className="font-semibold text-indigo-900">
+                          {c.author}
+                        </div>
+                        <div className="text-indigo-900/80">
+                          <div
+                            dangerouslySetInnerHTML={{ __html: c.content }}
+                          />
+                        </div>
                       </div>
-                      <div className="text-indigo-900/80">
-                        <div dangerouslySetInnerHTML={{ __html: c.content }} />
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </>
             )}
           </span>
         );

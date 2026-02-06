@@ -8,9 +8,10 @@
       "paragraphs": [
         {
           "id": "p-1",
-          "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Când auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: #68C3A3;\">prin oameni de taină.</span> <div style=\"text-align:right; \"><b>(Textul cu cea mai mare autoritate și acuratețe lingvistică, fiind lucrat în cadrul I.I.T.L. G. Călinescu, Academia Română, București)</b></div>"
+          "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi <comment id='c-7'>Teodor Văcărescu</comment>, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Când auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"background-color: #68C3A3;\">nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, <span style=\"background-color: #68C3A3;\">prin oameni de taină.</span> <div style=\"text-align:right; \"><b>(Textul cu cea mai mare autoritate și acuratețe lingvistică, fiind lucrat în cadrul I.I.T.L. G. Călinescu, Academia Română, București)</b></div>"
         }
       ],
+
       "alternatives": [
         {
           "id": "alt-1",
@@ -174,7 +175,7 @@
       "createdAt": "2026-01-27T10:18:00Z"
     },
     {
-      "id": "c-6",
+      "id": "c-7",
       "scope": "word",
       "chapterId": "ch-1",
       "version": "alt-6",
@@ -188,6 +189,22 @@
 
       "author": "Redactor carte",
       "content": "<b>acesta</b>= cuvântul trece de la singular la pluralul articulat „aceștia“, prin adăugarea cu creion roşu a sedilei sub „s“ şi prin suprascrierea cu creion roșu a desinenței „-i“ și a articolului „-a“.",
+      "createdAt": "2026-01-27T10:18:00Z"
+    },
+
+    {
+      "id": "c-7",
+      "scope": "word",
+      "chapterId": "ch-1",
+      "version": "ch-1",
+      "paragraphId": "p-1",
+      "anchor": {
+        "startWord": 3,
+        "endWord": 8,
+        "selectedText": "Alternate version of chapter one"
+      },
+      "author": "Personaje istorice:",
+      "content": "TEODOR VĂCĂRESCU (1774-1853): unul dintre boierii de rang înalt atât la finalul domniilor fanariote, cât și după introducerea <i>Regulamentului organic</i> în Țara Românească. S-a poziționat împotriva mișcării pașoptiste. A reușit totuși să devină caimacam pentru o zi, la 28 iunie 1848, alături de Emanoil Băleanu și de mitropolitul Neofit al Ungro-Vlahiei.",
       "createdAt": "2026-01-27T10:18:00Z"
     }
   ]
