@@ -11,11 +11,6 @@
   },
   {
     "label": "color",
-    "description": "corecturi/ interpolări/ întregiri de cuvinte, făcute cu creion de această culoare de către un redactor de carte.",
-    "color": "rgba(255, 0, 0, 0.5)"
-  },
-  {
-    "label": "color",
     "description": "literă/ grup de litere care variază faţă de cea mai veche formă identificată.",
     "color": "rgba(128, 0, 128, 0.5)"
   },
@@ -30,15 +25,21 @@
     "color": "#68C3A3"
   },
   {
-    "label": "<span style=\"color: #FFA500;\">Cuvânt</span>",
-    "description": "intervenție tipografică (editorială) făcută într-o carte publicată.",
-    "color": "rgba(255, 165, 0, 1)"
-  },
-  {
     "label": "<span style=\"color: #276CF5;\">Cuvânt</span>",
     "description": "scris/ corecturi/ întregiri de cuvinte/ însemnări/ adăugiri/ interpolări/ comentarii în stilou de această culoare, făcute de Camil Petrescu în manuscrise/ dactilograme.",
     "color": "#276CF5"
   },
+  {
+    "label": "<span style=\"color: rgba(255, 0, 0, 1);\">Cuvânt</span>",
+    "description": "corecturi/ interpolări/ întregiri de cuvinte, făcute cu creion de această culoare de către un redactor de carte.",
+    "color": "rgba(255, 0, 0, 1)"
+  },
+  {
+    "label": "<span style=\"color: #FFA500;\">Cuvânt</span>",
+    "description": "intervenție tipografică (editorială) făcută într-o carte publicată.",
+    "color": "rgba(255, 165, 0, 1)"
+  },
+
   {
     "label": "<span style=\"color: rgba(255, 165, 0, 1)\">Literă / literă</span>",
     "description": "majuscula/ minuscula a fost înlocuită de Camil Petrescu."

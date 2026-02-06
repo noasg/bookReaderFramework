@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F8F5F1] flex flex-col items-center justify-center px-6">
       <h1 className="text-4xl font-semibold text-indigo-900 mb-10">
-        Select a book
+        Citeste o carte
       </h1>
 
       <div className="mb-16">

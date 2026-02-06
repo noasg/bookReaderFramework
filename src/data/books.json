@@ -1,19 +1,19 @@
 [
   {
     "id": "book1",
-    "title": " The Adventures of Testland ",
+    "title": " Un om intre oameni - vol I ",
     "image": "images/unknownBookCover.png",
-    "description": "Long scrollable description text here... Long scrollable description text here... Long scrollable description text here... Long scrollable description text here..."
+    "description": "Descriere - Un om intre oameni - vol I"
   },
   {
     "id": "book2",
-    "title": "Chronicles of Light",
+    "title": "Titlu Demo 2",
     "image": "images/unknownBookCover.png",
     "description": "Long scrollable description text here..."
   },
   {
     "id": "book3",
-    "title": "Shadow Protocol",
+    "title": "  Titlu Demo 3 ",
     "image": "images/unknownBookCover.png",
     "description": "Long scrollable description text here..."
   }

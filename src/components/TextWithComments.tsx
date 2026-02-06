@@ -98,7 +98,9 @@ export default function TextWithComments({
                       <div className="font-semibold text-indigo-900">
                         {c.author}
                       </div>
-                      <div className="text-indigo-900/80">{c.content}</div>
+                      <div className="text-indigo-900/80">
+                        <div dangerouslySetInnerHTML={{ __html: c.content }} />
+                      </div>
                     </div>
                   ))}
                 </div>
