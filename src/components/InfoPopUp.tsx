@@ -24,15 +24,15 @@ export default function InfoPopUp({ isOpen, onClose }: InfoPopUpProps) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center 
-             bg-black/30 backdrop-blur-[2px]"
+                 bg-black/30 backdrop-blur-[2px]"
       onClick={onClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
         className="
           relative
-          w-[75vw]
-          h-[85vh]
+          w-[90vw] sm:w-[75vw]
+          max-h-[90vh]
           bg-white
           rounded-2xl
           shadow-2xl
@@ -45,7 +45,7 @@ export default function InfoPopUp({ isOpen, onClose }: InfoPopUpProps) {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="text-[#312c85] absolute top-3 right-3 bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center shadow hover:scale-105 transition z-10 "
+          className="text-[#312c85] absolute top-3 right-3 bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center shadow hover:scale-105 transition z-10"
           aria-label="Close"
         >
           <span className="font-bold text-lg">✕</span>
@@ -58,18 +58,18 @@ export default function InfoPopUp({ isOpen, onClose }: InfoPopUpProps) {
           </h2>
         </div>
 
-        {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-          {/* LEFT: Legend */}
-          <div className="overflow-y-auto pr-2 ml-2">
+        {/* Scrollable Content */}
+        <div className="overflow-y-auto px-6 py-4 space-y-6 text-xl">
+          {/* Legend */}
+          <div>
             <Legend />
           </div>
 
-          {/* RIGHT: Extra content */}
-          <div className="overflow-y-auto text-sm text-indigo-900 space-y-4 ml-2">
+          {/* Extra content */}
+          <div className="space-y-6">
             <div>
-              <h4 className="font-semibold mb-1">Alte Informatii</h4>
-              <p className="text-indigo-900/80">
+              <h4 className="font-semibold mb-2">Alte Informatii</h4>
+              <p className="text-indigo-900/90">
                 Descriere alte Informatii despre proiect, cum ar fi scopul,
                 metodologia, sursele de date, etc. Acest text poate fi
                 personalizat pentru a oferi utilizatorilor o înțelegere mai
@@ -78,8 +78,8 @@ export default function InfoPopUp({ isOpen, onClose }: InfoPopUpProps) {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-1">Navigare</h4>
-              <ul className="list-disc list-inside text-indigo-900/80">
+              <h4 className="font-semibold mb-2">Navigare</h4>
+              <ul className="list-disc list-inside text-indigo-900/90">
                 Detalii navigare proiect, cum ar fi cum să folosești interfața,
                 ce funcționalități sunt disponibile, cum să interpretezi datele,
                 etc. Acest text poate fi personalizat pentru a ghida
@@ -89,8 +89,8 @@ export default function InfoPopUp({ isOpen, onClose }: InfoPopUpProps) {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-1">Despre echipa</h4>
-              <p className="text-indigo-900/80">
+              <h4 className="font-semibold mb-2">Despre echipa</h4>
+              <p className="text-indigo-900/90">
                 Informatii despre echipa care a realizat proiectul, cum ar fi
                 numele membrilor, rolurile lor, experiența relevantă, etc. Acest
                 text poate fi personalizat pentru a oferi utilizatorilor o

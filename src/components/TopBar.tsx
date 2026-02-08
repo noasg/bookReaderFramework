@@ -25,14 +25,16 @@ export default function TopBar() {
           <span className="opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mt-1 cursor-pointer">
             <SingleLeftArrow width={30} height={30} />
           </span>
-          <span className="text-[#312c85] cursor-pointer">Back to books</span>
+          <span className="text-[#312c85] cursor-pointer text-xl">
+            Back to books
+          </span>
         </button>
 
         {/* Right */}
         <button
           onClick={() => setInfoOpen(true)}
-          className="px-3 py-1.5 rounded-lg text-sm font-semibold text-[#312c85] 
-                     bg-indigo-100 hover:bg-indigo-200 transition shadow-sm"
+          className="px-3 py-1.5 rounded-lg font-semibold text-[#312c85] 
+                     bg-indigo-100 hover:bg-indigo-200 transition shadow-sm text-lg"
         >
           Informatii
         </button>

@@ -65,7 +65,10 @@ export default function TextWithComments({
   const parts = parseParagraph(paragraph);
 
   return (
-    <div ref={containerRef} className="relative mb-4 text-black leading-7">
+    <div
+      ref={containerRef}
+      className="relative mb-4 text-black leading-7 text-xl"
+    >
       {parts.map((part, i) => {
         if (!part.commentId) {
           return (
@@ -104,7 +107,7 @@ export default function TextWithComments({
                   popupComments.map((c) => c.content),
                 )}
 
-                <div className="absolute z-50 top-full left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-sm">
+                <div className="absolute z-50 top-full left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-lg">
                   <div className="space-y-2">
                     {popupComments.map((c) => (
                       <div key={c.id}>

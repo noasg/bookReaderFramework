@@ -8,8 +8,8 @@ type LegendItem = {
 
 export default function Legend() {
   return (
-    <div className="mt-auto">
-      <h4 className="text-indigo-900 font-semibold mb-3">Legenda:</h4>
+    <div className="mt-auto text-xl text-indigo-900">
+      <h4 className="font-semibold mb-3">Legenda:</h4>
 
       <div className="flex flex-col gap-3">
         {(legenda as LegendItem[]).map((item, i) => (
@@ -29,20 +29,20 @@ export default function Legend() {
               ) : (
                 // HTML label
                 <span
-                  className="text-sm text-indigo-900 "
+                  className="text-xl font-semibold"
                   dangerouslySetInnerHTML={{ __html: item.label }}
                 />
               )}
             </div>
 
             {/* ARROW */}
-            <span className="shrink-0 text-indigo-900/60 text-xl font-bold leading-none mt-0">
+            <span className="shrink-0 text-xl font-bold leading-none mt-0 text-indigo-900/60">
               →
             </span>
 
             {/* DESCRIPTION */}
             <div
-              className={`text-sm text-indigo-900/90 leading-relaxed ${
+              className={`text-xl leading-relaxed ${
                 item.label !== "color" ? "mt-0.5" : ""
               }`}
             >

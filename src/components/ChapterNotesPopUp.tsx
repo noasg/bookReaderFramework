@@ -73,7 +73,7 @@ export default function ChapterNotesPopUp({
               <div key={note.id} className="space-y-2">
                 {/* <h4 className="font-semibold">{note.author}</h4> */}
                 <div
-                  className="text-sm text-indigo-900/90"
+                  className="text-lg text-indigo-900/90"
                   dangerouslySetInnerHTML={{ __html: note.content || "" }}
                 />
               </div>

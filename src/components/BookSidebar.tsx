@@ -61,7 +61,7 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
           ${collapsed ? "opacity-0 -translate-x-2 pointer-events-none" : "opacity-100"}
         `}
       >
-        <h3 className="text-lg font-semibold text-indigo-900 mb-6">
+        <h3 className="text-2xl font-semibold text-indigo-900 mb-6">
           {book.title}
         </h3>
 
@@ -81,8 +81,8 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
                   ${!isActive ? "cursor-pointer" : "cursor-default"}
                   ${
                     isActive
-                      ? "bg-indigo-900/10 text-indigo-900 font-semibold transform translate-x-1"
-                      : "text-indigo-900 hover:bg-indigo-900/5 transform hover:translate-x-1"
+                      ? "bg-indigo-900/10 text-indigo-900 font-semibold transform translate-x-1 text-xl"
+                      : "text-indigo-900 hover:bg-indigo-900/5 transform hover:translate-x-1 text-xl"
                   }
                 `}
               >

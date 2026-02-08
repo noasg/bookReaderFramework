@@ -13,7 +13,7 @@ export default function BookTile({ id, title, image, onOpen }: BookTileProps) {
         group
         flex flex-col items-center
          
-       w-56
+       w-66
        
         rounded-xl
         bg-white
@@ -37,7 +37,7 @@ export default function BookTile({ id, title, image, onOpen }: BookTileProps) {
       />
 
       <div className="flex items-center justify-center w-full py-2 px-2">
-        <p className="text-indigo-900 font-semibold text-center wrap-break-word">
+        <p className="text-indigo-900 font-semibold text-center wrap-break-word text-xl">
           {title}
         </p>
       </div>
