@@ -1,17 +1,20 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import type { Chapter, Comments } from "../types/types";
+import type { Chapter, ChapterNote, Comments } from "../types/types";
 import TextPanel from "./TextPanel";
 
 type ChapterPanelsProps = {
   chapter: Chapter;
   comments: Comments[];
+  chapterNotes: ChapterNote[]; // ✅ new prop
 };
 
 export default function ChapterPanels({
   chapter,
   comments,
+  chapterNotes = [], // ✅ new prop with default value
 }: ChapterPanelsProps) {
+  // console.log("ChapterPanels - chapterNotes:", chapterNotes);
   const navigate = useNavigate();
   const { bookId } = useParams<{ bookId: string }>();
 
@@ -63,6 +66,7 @@ export default function ChapterPanels({
         comments={comments}
         chapterId={chapter.id}
         hasCloseButton={false}
+        chapterNotes={chapterNotes}
       />
 
       {/* RIGHT PANEL */}
@@ -81,6 +85,7 @@ export default function ChapterPanels({
           extraClasses="bg-white border-l border-indigo-900/10"
           comments={comments}
           chapterId={chapter.id}
+          chapterNotes={chapterNotes}
         />
       )}
     </main>

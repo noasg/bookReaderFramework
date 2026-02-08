@@ -78,12 +78,12 @@ export default function TextWithComments({
           (c) => c.id === part.commentId,
         );
         const isActive = activeCommentId === part.commentId;
-        console.log(
-          "Rendering part:",
-          part.text,
-          "with commentId:",
-          part.commentId,
-        );
+        // console.log(
+        //   "Rendering part:",
+        //   part.text,
+        //   "with commentId:",
+        //   part.commentId,
+        // );
         return (
           <span key={i} className="relative">
             <span

@@ -34,7 +34,7 @@ export default function TopBar() {
           className="px-3 py-1.5 rounded-lg text-sm font-semibold text-[#312c85] 
                      bg-indigo-100 hover:bg-indigo-200 transition shadow-sm"
         >
-          Info
+          Informatii
         </button>
       </header>
 

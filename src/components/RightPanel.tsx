@@ -16,8 +16,16 @@ export default function RightPanel() {
     activeBookId ? state.book.books[activeBookId] : null,
   );
 
+  console.log("RightPanel - activeBook:", book);
+
   // ✅ GET COMMENTS FROM STORE
   const comments = useSelector((state: RootState) => state.book.comments);
+
+  const chapterNotes = useSelector(
+    (state: RootState) => state.book.chapterNotes,
+  );
+
+  // console.log("RightPanel - chapterNotes:", chapterNotes);
 
   const chapter =
     book && openChapterId
@@ -37,6 +45,7 @@ export default function RightPanel() {
       key={chapter.id}
       chapter={chapter}
       comments={comments ?? []} // ✅ PASS COMMENTS
+      chapterNotes={chapterNotes ?? []}
     />
   );
 }

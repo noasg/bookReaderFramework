@@ -217,5 +217,16 @@
       "content": "TEODOR VĂCĂRESCU (1774-1853): unul dintre boierii de rang înalt atât la finalul domniilor fanariote, cât și după introducerea <i>Regulamentului organic</i> în Țara Românească. S-a poziționat împotriva mișcării pașoptiste. A reușit totuși să devină caimacam pentru o zi, la 28 iunie 1848, alături de Emanoil Băleanu și de mitropolitul Neofit al Ungro-Vlahiei.",
       "createdAt": "2026-01-27T10:18:00Z"
     }
+  ],
+  "chapterNotes": [
+    {
+      "id": "cn-2",
+      "chapterId": "ch-1",
+      "version": "alt-1",
+
+      "author": "Notă asupra fragmentului de manuscris: ",
+      "content": "Textul este scris de mână de Camil Petrescu, în creion gri, pe file A 4, doar recto, având 24 și respectiv 26 de rânduri. Fiecare filă este numerotată de romancier cu cifre arabe, de la 1 la 5, încercuindu-le: ①②③④⑤. Grafia este greu descifrabilă. Tăieturile îi aparțin autorului și sunt făcute atât în creion, cât și în stilou de cerneală albastră. Adăugirile și interpolările romancierului sunt în cerneală albastră. ",
+      "createdAt": "2026-01-27T10:20:00Z"
+    }
   ]
 }

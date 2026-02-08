@@ -39,3 +39,12 @@ export interface Comments {
   content: string;
   createdAt: string;
 }
+
+export interface ChapterNote {
+  id?: string; // unique note ID
+  bookId?: string; // which book the note belongs to
+  chapterId?: string; // which chapter the note belongs to
+  version?: string; // version of the note
+  author?: string;
+  content?: string;
+}

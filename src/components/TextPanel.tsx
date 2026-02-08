@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
-import type { ChapterAlternative, Comments } from "../types/types";
+import type { ChapterAlternative, ChapterNote, Comments } from "../types/types";
 import HeaderTextPanel from "./HeaderTextPanel";
 import DiffText from "./DiffText";
 import TextWithComments from "./TextWithComments";
+import ChapterNotesPopUp from "./ChapterNotesPopUp";
 
 type TextPanelProps = {
   title: string;
@@ -26,6 +27,7 @@ type TextPanelProps = {
   comments?: Comments[];
   chapterId: string;
 
+  chapterNotes?: ChapterNote[];
   hasCloseButton?: boolean;
 };
 
@@ -46,9 +48,12 @@ export default function TextPanel({
   comments,
   chapterId,
   hasCloseButton = true,
+  chapterNotes = [],
 }: TextPanelProps) {
   const [internalSelectedVersionId, setInternalSelectedVersionId] =
     useState(defaultVersionId);
+  const [infoOpen, setInfoOpen] = useState(false); // ✅ popup state
+
   const selectedVersionId = selectedVersionIdProp ?? internalSelectedVersionId;
   const setSelectedVersionIdFn =
     onVersionChange ?? setInternalSelectedVersionId;
@@ -59,22 +64,30 @@ export default function TextPanel({
     [alternatives, selectedVersionId],
   );
 
+  const notesForCurrentVersion = chapterNotes.filter(
+    (note) => note.version === selectedVersionId,
+  );
+
   return (
     <section
-      className={`
-        transition-all duration-300 ease-in-out overflow-hidden
-        ${
-          isVisible
-            ? widthMode === "half"
-              ? "w-1/2 opacity-100"
-              : "w-full opacity-100"
-            : side === "left"
-              ? "w-0 opacity-0 -translate-x-6 pointer-events-none"
-              : "w-0 opacity-0 translate-x-6 pointer-events-none"
-        }
-        ${extraClasses}
-      `}
+      className={`transition-all duration-300 ease-in-out overflow-hidden ${
+        isVisible
+          ? widthMode === "half"
+            ? "w-1/2 opacity-100"
+            : "w-full opacity-100"
+          : side === "left"
+            ? "w-0 opacity-0 -translate-x-6 pointer-events-none"
+            : "w-0 opacity-0 translate-x-6 pointer-events-none"
+      } ${extraClasses}`}
     >
+      {/* --- POPUP AT TOP LEVEL --- */}
+      <ChapterNotesPopUp
+        isOpen={infoOpen}
+        onClose={() => setInfoOpen(false)}
+        notes={notesForCurrentVersion}
+      />
+
+      {/* --- HEADER --- */}
       <HeaderTextPanel
         title={title}
         selectedVersionId={selectedVersionId}
@@ -84,8 +97,11 @@ export default function TextPanel({
         showDiff={showDiff}
         onToggleDiff={onToggleDiff}
         hasCloseButton={hasCloseButton}
+        chapterNotes={chapterNotes}
+        onOpenInfo={() => setInfoOpen(true)} // ✅ pass callback
       />
 
+      {/* --- TEXT CONTENT --- */}
       <div className="px-4 py-4 space-y-4">
         {diffAgainstText && showDiff ? (
           <DiffText
