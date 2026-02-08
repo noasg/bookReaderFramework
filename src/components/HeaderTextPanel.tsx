@@ -80,7 +80,7 @@ export default function HeaderTextPanel({
         {showInfoButton && (
           <button
             onClick={onOpenInfo}
-            className="px-3 py-1.5 rounded-lg   font-semibold text-[#312c85] 
+            className="px-3 py-1 rounded-lg   font-semibold text-[#312c85] 
                bg-indigo-100 hover:bg-indigo-200 transition shadow-sm text-lg"
           >
             Info
