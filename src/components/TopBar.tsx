@@ -26,7 +26,7 @@ export default function TopBar() {
             <SingleLeftArrow width={30} height={30} />
           </span>
           <span className="text-[#312c85] cursor-pointer text-xl">
-            Back to books
+            Inapoi la biblioteca
           </span>
         </button>
 
