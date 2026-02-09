@@ -44,3 +44,7 @@ comment {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
