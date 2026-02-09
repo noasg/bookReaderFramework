@@ -8,6 +8,7 @@ export interface Chapter {
   title: string;
   paragraphs: Paragraph[];
   alternatives?: ChapterAlternative[]; // ✅ NEW
+  clearText?: ChapterAlternative[]; // ✅ NEW
 }
 
 export interface Book {

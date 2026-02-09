@@ -5,6 +5,79 @@
     {
       "id": "ch-1",
       "title": "Capitolul I",
+      "clearText": [
+        {
+          "id": "original",
+          "label": "Original",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brâncoveanu şi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Când auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei"
+            }
+          ]
+        },
+        {
+          "id": "alt-1",
+          "label": "Versiune 2",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "nii nu erau totuși liniștiți. ai toți toți marii boieri în frunte cu Banul Brâncoveanu și Theodor Văcărescu fugiseră la Brașov. de se încrețea carnea pe om. Acum întreaga oaste a lui Tudor trecuse de Craiova și se apropia, cu mult popor după ea, de Olt. Când auziră boiernașii de pe Topolog că <span style=\"text-decoration: line-through;\">chiar</span> fug cu spaimă chiar oamenii Căimăcămiei (cică Vodă Șuțu murise otrăvit<sup>7</sup>/ de proprii lui fii, deoarece fiind rugat de aceștia să facă parte din Eterie,"
+            }
+          ]
+        },
+        {
+          "id": "alt-2",
+          "label": "Versiune 3",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniştiţi. De la Bucureşti, mai toţi marii boierii — în frunte cu banul Brnă — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei, nu mai șovăiră nici ei</span>. Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului, prin oameni de taină."
+            }
+          ]
+        },
+        {
+          "id": "alt-3",
+          "label": "Versiune 4",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniștiți. De la București, mai toţi marii boierii — în frunte cu banul Brşi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei,  Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului,Un om între oame, vol. I, București, Editura Tineretului, 1959, p. 8).</b></div> "
+            }
+          ]
+        },
+        {
+          "id": "alt-4",
+          "label": "Versiune 5",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniștiți. De la București, mai toţi marii boierii — în frunte cu banul Brşi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei,  Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului,Un om între oame, vol. I, București, Editura Tineretului, 1959, p. 8).</b></div> "
+            }
+          ]
+        },
+        {
+          "id": "alt-5",
+          "label": "Versiune 6a",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniștiți. De la București, mai toţi marii boierii — în frunte cu banul Brşi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei,  Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului,Un om între oame, vol. I, București, Editura Tineretului, 1959, p. 8).</b></div> "
+            }
+          ]
+        },
+
+        {
+          "id": "alt-6",
+          "label": "Versiune 6b",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Se vede că asta nu era de ajuns. Oamenii nu erau liniștiți. De la București, mai toţi marii boierii — în frunte cu banul Brşi Teodor Văcărescu, zis Furtună — fugiseră, ori erau pe cale să fugă la Brașov. Umblau tot felul de vești, de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova şi se apropia, cu mult popor după ea, de Olt. Cînd auziră boiernaşii de pe Topolog că fug cu spaimă chiar oamenii căimăcămiei,  Căimăcămia ducea ţara în locul lui vodă Şuţu, otrăvit se pare de propriii lui fii, care-l rugaseră să facă parte din Eterie, iar el refuzase şi de aceea devenise primejdios, căci ar fi putut da pe faţă totul la Istambul, devletului,Un om între oame, vol. I, București, Editura Tineretului, 1959, p. 8).</b></div> "
+            }
+          ]
+        }
+      ],
 
       "alternatives": [
         {
@@ -75,22 +148,6 @@
             {
               "id": "p-1",
               "text": "Se vede că asta nu era de ajuns, oamenii nu erau liniștiți. De la București mai toți marii boieri în frunte cu banu Brâncoveanu și Teodor Văcărescu (Furtună) fugiseră, orie erau pe cale să fugă la Brașov. Umblau tot felul de vești de se încrețea carnea pe om. Acuma, întreaga oaste a lui Tudor trecuse de Craiova și se apropia, cu mult popor după ea, de Olt. Când auziră boiernașii din Topolog că fug cu spaimă chiar oamenii căimăcămiei, <span style=\"color: rgba(255, 0, 0, 1);\">care duceau țara în locul lui</span> (căci Vodă Șuțu murise otrăvit de proprii lui fii, deoarece fiind rugat de <comment id='c-6'>acest<span style=\"color: rgba(255, 0, 0,1);\">ia</span></comment> să facă parte din Eterie, refuzase și era deci primejdios ca să le dea pe față prin <span style=\"background-color: #68C3A3;\">oameni<span style=\"text-decoration: line-through; color: red;\">i</span> de taină</span>, totul, la Istanbul, Devletului, <span style=\"background-color: #68C3A3;\">nu mai şovăiră nici ei</span>.   <div style=\"text-align:right; \"><b> (M.N.L.R., ms. 40265, dactilogramă, <i>N. Bălcescu</i>, volumul I, cap. „Fuga din calea revoluţiei“, f. 3, p. 1; versiune editată filologic). </b></div> "
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ch-2",
-      "title": "Capitolul II",
-      "alternatives": [
-        {
-          "id": "original",
-          "label": "Original",
-          "paragraphs": [
-            {
-              "id": "p-1",
-              "text": "text capitol 2, varianta originală"
             }
           ]
         }

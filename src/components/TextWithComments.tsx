@@ -53,7 +53,6 @@ export default function TextWithComments({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // All comments for this paragraph
   const paragraphComments = comments.filter(
     (c) =>
       c.chapterId === chapterId &&
@@ -76,54 +75,43 @@ export default function TextWithComments({
           );
         }
 
-        // Get all comments covering this commentId
         const popupComments = paragraphComments.filter(
           (c) => c.id === part.commentId,
         );
         const isActive = activeCommentId === part.commentId;
-        // console.log(
-        //   "Rendering part:",
-        //   part.text,
-        //   "with commentId:",
-        //   part.commentId,
-        // );
+
         return (
           <span key={i} className="relative">
             <span
-              className={`bg-yellow-200 rounded px-0.5 cursor-pointer ${
-                isActive ? "bg-yellow-300" : ""
-              }`}
+              className={`bg-yellow-200 rounded px-0.5 cursor-pointer ${isActive ? "bg-yellow-300" : ""}`}
               onClick={() =>
                 setActiveCommentId(isActive ? null : part.commentId || null)
               }
               dangerouslySetInnerHTML={{ __html: part.text }}
             />
-            {isActive && (
-              <>
-                {console.log(
-                  "Popup displayed for commentId:",
-                  part.commentId,
-                  "Popup content:",
-                  popupComments.map((c) => c.content),
-                )}
 
-                <div className="absolute z-50 top-full left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-lg">
-                  <div className="space-y-2">
-                    {popupComments.map((c) => (
-                      <div key={c.id}>
-                        <div className="font-semibold text-indigo-900">
-                          {c.author}
-                        </div>
-                        <div className="text-indigo-900/80">
-                          <div
-                            dangerouslySetInnerHTML={{ __html: c.content }}
-                          />
-                        </div>
-                      </div>
-                    ))}
+            {isActive && (
+              <div
+                className="absolute left-1/2 transform -translate-x-1/2 mt-2 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-lg whitespace-pre-wrap"
+                style={{
+                  minWidth: "200px",
+                  maxWidth: "90%",
+                  textAlign: "center",
+                  zIndex: 10,
+                }}
+              >
+                {popupComments.map((c) => (
+                  <div key={c.id} className="mb-2">
+                    <div className="font-semibold text-indigo-900">
+                      {c.author}
+                    </div>
+                    <div
+                      className="text-indigo-900/80"
+                      dangerouslySetInnerHTML={{ __html: c.content }}
+                    />
                   </div>
-                </div>
-              </>
+                ))}
+              </div>
             )}
           </span>
         );

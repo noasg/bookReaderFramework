@@ -7,7 +7,7 @@ import ChapterNotesPopUp from "./ChapterNotesPopUp";
 
 type TextPanelProps = {
   title: string;
-  alternatives: ChapterAlternative[];
+  alternatives: ChapterAlternative[]; // can also be clearText
   defaultVersionId: string;
 
   selectedVersionId?: string;
@@ -33,7 +33,7 @@ type TextPanelProps = {
 
 export default function TextPanel({
   title,
-  alternatives,
+  alternatives = [],
   defaultVersionId,
   selectedVersionId: selectedVersionIdProp,
   onVersionChange,
@@ -52,17 +52,22 @@ export default function TextPanel({
 }: TextPanelProps) {
   const [internalSelectedVersionId, setInternalSelectedVersionId] =
     useState(defaultVersionId);
-  const [infoOpen, setInfoOpen] = useState(false); // ✅ popup state
+  const [infoOpen, setInfoOpen] = useState(false);
 
   const selectedVersionId = selectedVersionIdProp ?? internalSelectedVersionId;
   const setSelectedVersionIdFn =
     onVersionChange ?? setInternalSelectedVersionId;
 
-  const selectedVersion = useMemo(
-    () =>
-      alternatives.find((a) => a.id === selectedVersionId) ?? alternatives[0],
-    [alternatives, selectedVersionId],
-  );
+  // ✅ Safely get the selected version
+  const selectedVersion = useMemo(() => {
+    if (!alternatives || alternatives.length === 0) return undefined;
+    return (
+      alternatives.find((a) => a.id === selectedVersionId) ?? alternatives[0]
+    );
+  }, [alternatives, selectedVersionId]);
+
+  // ✅ Safe paragraphs array
+  const paragraphs = selectedVersion?.paragraphs ?? [];
 
   const notesForCurrentVersion = chapterNotes.filter(
     (note) => note.version === selectedVersionId,
@@ -98,7 +103,7 @@ export default function TextPanel({
         onToggleDiff={onToggleDiff}
         hasCloseButton={hasCloseButton}
         chapterNotes={chapterNotes}
-        onOpenInfo={() => setInfoOpen(true)} // ✅ pass callback
+        onOpenInfo={() => setInfoOpen(true)}
       />
 
       {/* --- TEXT CONTENT --- */}
@@ -106,17 +111,15 @@ export default function TextPanel({
         {diffAgainstText && showDiff ? (
           <DiffText
             baseText={diffAgainstText}
-            compareText={selectedVersion.paragraphs
-              .map((p) => p.text)
-              .join("\n")}
+            compareText={paragraphs.map((p) => p.text).join("\n")}
           />
         ) : (
-          selectedVersion.paragraphs.map((p) => (
+          paragraphs.map((p) => (
             <TextWithComments
               key={p.id}
               paragraph={p}
               chapterId={chapterId}
-              versionId={selectedVersion.id}
+              versionId={selectedVersion?.id ?? ""}
               comments={comments ?? []}
             />
           ))

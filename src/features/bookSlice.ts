@@ -20,6 +20,7 @@ const transformBook = (book: any): Book => ({
     title: chapter.title,
     paragraphs: chapter.alternatives?.[0]?.paragraphs || [],
     alternatives: chapter.alternatives,
+    clearText: chapter.clearText ?? [],
   })),
 });
 

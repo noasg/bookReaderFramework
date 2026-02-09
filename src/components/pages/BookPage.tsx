@@ -31,6 +31,8 @@ export default function BookPage() {
 
       // ✅ auto-select first chapter if none
       const bookFromStore = store.getState().book.books[bookId];
+
+      console.log("BookPage useEffect - bookFromStore:", bookFromStore);
       if (bookFromStore?.chapters?.length && !activeChapterId) {
         dispatch(openChapter(bookFromStore.chapters[0].id));
       }
@@ -42,8 +44,6 @@ export default function BookPage() {
 
   // Wait until Redux knows the book
   if (!activeBookId) return null;
-
-  // console.log("");
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
