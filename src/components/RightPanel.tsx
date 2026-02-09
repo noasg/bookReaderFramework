@@ -40,12 +40,22 @@ export default function RightPanel() {
     );
   }
 
+  if (!chapter) {
+    return (
+      <main className="flex-1 px-10 py-8 text-indigo-900/60 italic overflow-y-auto">
+        Select a chapter to read
+      </main>
+    );
+  }
+
   return (
-    <ChapterPanels
-      key={chapter.id}
-      chapter={chapter}
-      comments={comments ?? []} // ✅ PASS COMMENTS
-      chapterNotes={chapterNotes ?? []}
-    />
+    <div className="flex-1 overflow-y-auto">
+      <ChapterPanels
+        key={chapter.id}
+        chapter={chapter}
+        comments={comments ?? []}
+        chapterNotes={chapterNotes ?? []}
+      />
+    </div>
   );
 }

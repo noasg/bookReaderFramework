@@ -7,6 +7,7 @@ import RightPanel from "../RightPanel";
 import { openBook } from "../../features/bookSlice";
 import { openChapter } from "../ui/uiSlice";
 import { store, type RootState } from "../../../store";
+import Footer from "../Footer";
 
 export default function BookPage() {
   const { bookId, chapterId } = useParams<{
@@ -45,13 +46,20 @@ export default function BookPage() {
   // console.log("");
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen overflow-hidden">
+      {/* Top */}
       <TopBar />
-      <div className="flex flex-1">
-        {/* Pass activeBookId to sidebar */}
-        <BookSidebar bookId={activeBookId} />
-        <RightPanel />
+
+      {/* Middle scrollable area ONLY */}
+      <div className="flex flex-1 overflow-hidden">
+        <div className="flex flex-1 overflow-y-auto">
+          <BookSidebar bookId={activeBookId} />
+          <RightPanel />
+        </div>
       </div>
+
+      {/* Footer - ALWAYS visible */}
+      <Footer />
     </div>
   );
 }
