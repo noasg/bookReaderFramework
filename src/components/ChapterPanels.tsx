@@ -50,7 +50,7 @@ export default function ChapterPanels({
   }, [leftSelectedVersionId, chapter.alternatives]);
 
   return (
-    <main className="flex-1 flex overflow-hidden border-l border-indigo-900/10">
+    <main className="flex-1 flex overflow-y-auto border-l border-indigo-900/10">
       {/* LEFT PANEL */}
       <TextPanel
         title={chapter.title}
