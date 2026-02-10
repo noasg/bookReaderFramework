@@ -54,7 +54,7 @@ export default function Home() {
             place-items-center
           "
         >
-          {books.map((book) => (
+          {/* {books.map((book) => (
             <BookTile
               key={book.id}
               id={book.id}
@@ -63,7 +63,7 @@ export default function Home() {
               onOpen={() => goToBook(book.id)} // ⬅️ now opens popup
               // onOpen={open} // ⬅️ now opens popup
             />
-          ))}
+          ))} */}
         </div>
       </div>
 
