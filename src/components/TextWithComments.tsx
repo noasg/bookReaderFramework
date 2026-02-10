@@ -83,7 +83,7 @@ export default function TextWithComments({
         return (
           <span key={i} className="relative">
             <span
-              className={`bg-yellow-200 rounded px-0.5 cursor-pointer ${isActive ? "bg-yellow-300" : ""}`}
+              className={`bg-yellow-200 rounded cursor-pointer ${isActive ? "bg-yellow-300" : ""}`}
               onClick={() =>
                 setActiveCommentId(isActive ? null : part.commentId || null)
               }
