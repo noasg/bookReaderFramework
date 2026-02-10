@@ -75,6 +75,7 @@ export default function TextPanel({
 
   return (
     <section
+      data-text-panel
       className={`transition-all duration-300 ease-in-out overflow-hidden ${
         isVisible
           ? widthMode === "half"

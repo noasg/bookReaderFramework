@@ -1,14 +1,14 @@
-// import { useDispatch } from "react-redux";
-// import { resetUI } from "../components/ui/uiSlice";
-// import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetUI } from "../components/ui/uiSlice";
+import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
-// import BookTile from "../components/BookTile";
+import BookTile from "../components/BookTile";
 // import IntermediatePopUp from "../components/IntermediatePopUp";
-// import books from "../data/books.json";
+import books from "../data/books.json";
 
 export default function Home() {
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // const [selectedBook, setSelectedBook] = useState<any>(null);
   // const [popupOpen, setPopupOpen] = useState(false);
@@ -21,13 +21,13 @@ export default function Home() {
   //   setPopupOpen(true);
   // };
 
-  // const goToBook = (bookId: string) => {
-  //   // if (!selectedBook) return;
+  const goToBook = (bookId: string) => {
+    // if (!selectedBook) return;
 
-  //   dispatch(resetUI());
-  //   navigate(`/${bookId}`);
-  //   console.log(`home.tsx ->> Navigating to book: ${bookId}`);
-  // };
+    dispatch(resetUI());
+    navigate(`/${bookId}`);
+    console.log(`home.tsx ->> Navigating to book: ${bookId}`);
+  };
 
   // const goToBook = () => {
   //   // if (!selectedBook) return;
@@ -40,8 +40,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F8F5F1] flex flex-col items-center justify-center px-6">
       <h1 className="text-4xl font-semibold text-indigo-900 mb-10">
-        {/* Citeste o carte */}
-        Under revision
+        Citeste o carte
       </h1>
 
       <div className="mb-16">
@@ -55,8 +54,7 @@ export default function Home() {
             place-items-center
           "
         >
-          {/* test */}
-          {/* {books.map((book) => (
+          {books.map((book) => (
             <BookTile
               key={book.id}
               id={book.id}
@@ -65,7 +63,7 @@ export default function Home() {
               onOpen={() => goToBook(book.id)} // ⬅️ now opens popup
               // onOpen={open} // ⬅️ now opens popup
             />
-          ))} */}
+          ))}
         </div>
       </div>
 

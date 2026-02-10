@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import type { Paragraph, Comments } from "../types/types";
+import CommentPopup from "./CommentPopUp";
 
 type TextWithCommentsProps = {
   paragraph: Paragraph;
@@ -37,7 +38,11 @@ export default function TextWithComments({
   comments,
 }: TextWithCommentsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+
   const [activeCommentId, setActiveCommentId] = useState<string | null>(null);
+  const [anchorRect, setAnchorRect] = useState<DOMRect | null>(null);
+  const [panelRect, setPanelRect] = useState<DOMRect | null>(null);
 
   // Close popup on click outside
   useEffect(() => {
@@ -47,10 +52,25 @@ export default function TextWithComments({
         !containerRef.current.contains(e.target as Node)
       ) {
         setActiveCommentId(null);
+        setAnchorRect(null);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // find parent panel + measure it
+  useEffect(() => {
+    if (containerRef.current) {
+      const panel = containerRef.current.closest(
+        "[data-text-panel]",
+      ) as HTMLDivElement | null;
+
+      if (panel) {
+        panelRef.current = panel;
+        setPanelRect(panel.getBoundingClientRect());
+      }
+    }
   }, []);
 
   const paragraphComments = comments.filter(
@@ -83,35 +103,35 @@ export default function TextWithComments({
         return (
           <span key={i} className="relative">
             <span
-              className={`bg-yellow-200 rounded cursor-pointer ${isActive ? "bg-yellow-300" : ""}`}
-              onClick={() =>
-                setActiveCommentId(isActive ? null : part.commentId || null)
-              }
+              className={`bg-yellow-200 rounded cursor-pointer ${
+                isActive ? "bg-yellow-300" : ""
+              }`}
+              onClick={(e) => {
+                if (isActive) {
+                  setActiveCommentId(null);
+                  setAnchorRect(null);
+                } else {
+                  const rect = (
+                    e.currentTarget as HTMLElement
+                  ).getBoundingClientRect();
+                  setActiveCommentId(part.commentId || null);
+                  setAnchorRect(rect);
+                }
+              }}
               dangerouslySetInnerHTML={{ __html: part.text }}
             />
 
-            {isActive && (
-              <div
-                className="absolute left-1/2 transform -translate-x-1/2 mt-2 rounded-lg bg-white shadow-lg border border-indigo-900/10 p-3 text-lg whitespace-pre-wrap"
-                style={{
-                  minWidth: "200px",
-                  maxWidth: "90%",
-                  textAlign: "center",
-                  zIndex: 10,
+            {/* PORTAL POPUP */}
+            {isActive && anchorRect && panelRect && (
+              <CommentPopup
+                anchorRect={anchorRect}
+                panelRect={panelRect}
+                comments={popupComments}
+                onClose={() => {
+                  setActiveCommentId(null);
+                  setAnchorRect(null);
                 }}
-              >
-                {popupComments.map((c) => (
-                  <div key={c.id} className="mb-2">
-                    <div className="font-semibold text-indigo-900">
-                      {c.author}
-                    </div>
-                    <div
-                      className="text-indigo-900/80"
-                      dangerouslySetInnerHTML={{ __html: c.content }}
-                    />
-                  </div>
-                ))}
-              </div>
+              />
             )}
           </span>
         );
