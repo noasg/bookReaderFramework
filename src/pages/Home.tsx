@@ -1,14 +1,14 @@
-import { useDispatch } from "react-redux";
-import { resetUI } from "../components/ui/uiSlice";
-import { useNavigate } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { resetUI } from "../components/ui/uiSlice";
+// import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
-import BookTile from "../components/BookTile";
+// import BookTile from "../components/BookTile";
 // import IntermediatePopUp from "../components/IntermediatePopUp";
-import books from "../data/books.json";
+// import books from "../data/books.json";
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   // const [selectedBook, setSelectedBook] = useState<any>(null);
   // const [popupOpen, setPopupOpen] = useState(false);
@@ -21,13 +21,13 @@ export default function Home() {
   //   setPopupOpen(true);
   // };
 
-  const goToBook = (bookId: string) => {
-    // if (!selectedBook) return;
+  // const goToBook = (bookId: string) => {
+  //   // if (!selectedBook) return;
 
-    dispatch(resetUI());
-    navigate(`/${bookId}`);
-    console.log(`home.tsx ->> Navigating to book: ${bookId}`);
-  };
+  //   dispatch(resetUI());
+  //   navigate(`/${bookId}`);
+  //   console.log(`home.tsx ->> Navigating to book: ${bookId}`);
+  // };
 
   // const goToBook = () => {
   //   // if (!selectedBook) return;
