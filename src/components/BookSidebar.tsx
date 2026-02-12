@@ -44,6 +44,7 @@ export default function BookSidebar({ bookId }: { bookId?: string }) {
           flex items-center justify-center
           border border-indigo-900/20
           transition-transform cursor-pointer
+          z-10
         "
       >
         {collapsed ? (

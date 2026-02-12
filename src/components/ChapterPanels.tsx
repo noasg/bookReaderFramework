@@ -87,7 +87,7 @@ export default function ChapterPanels({
   });
 
   return (
-    <main className="flex-1 flex overflow-y-auto border-l border-indigo-900/10">
+    <main className="flex-1 flex flex-col lg:flex-row overflow-y-auto border-l border-indigo-900/10">
       {/* LEFT PANEL */}
       <TextPanel
         title={chapter.title}
@@ -119,7 +119,12 @@ export default function ChapterPanels({
           side="right"
           onClose={() => setShowRight(false)}
           diffAgainstText={leftVersionText}
-          extraClasses="bg-white border-l border-indigo-900/10"
+          extraClasses="
+  bg-white
+  border-t border-indigo-900/20 shadow-md
+  lg:border-t-0 lg:shadow-none
+  lg:border-l lg:border-indigo-900/10
+"
           comments={comments}
           chapterId={chapter.id}
           chapterNotes={chapterNotes}

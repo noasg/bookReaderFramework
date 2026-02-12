@@ -76,10 +76,10 @@ export default function TextPanel({
   return (
     <section
       data-text-panel
-      className={`transition-all duration-300 ease-in-out overflow-hidden ${
+      className={`transition-all duration-300 ease-in-out overflow-hidden flex flex-col ${
         isVisible
           ? widthMode === "half"
-            ? "w-1/2 opacity-100"
+            ? "w-full lg:w-1/2 opacity-100"
             : "w-full opacity-100"
           : side === "left"
             ? "w-0 opacity-0 -translate-x-6 pointer-events-none"
@@ -108,7 +108,7 @@ export default function TextPanel({
       />
 
       {/* --- TEXT CONTENT --- */}
-      <div className="px-4 py-4 space-y-4">
+      <div className="flex-1 px-4 py-4 space-y-4 overflow-y-auto">
         {diffAgainstText && showDiff ? (
           <DiffText
             baseText={diffAgainstText}
