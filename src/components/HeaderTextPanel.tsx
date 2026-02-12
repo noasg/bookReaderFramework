@@ -36,29 +36,19 @@ export default function HeaderTextPanel({
   const showInfoButton = notesForCurrentVersion.length > 0 && onOpenInfo;
 
   return (
-    <header className="flex flex-col px-4 py-2 border-b border-indigo-900/10 bg-white/70 backdrop-blur gap-2">
-      {/* TOP ROW: Title + Close button */}
-      <div className="flex justify-between items-center w-full">
-        <h2 className="text-xl font-semibold text-indigo-900">{title}</h2>
+    <header className="flex items-center px-4 py-2 border-b border-indigo-900/10 bg-white/70 backdrop-blur gap-3">
+      {/* Title */}
+      <h2 className="text-lg font-semibold text-indigo-900 whitespace-nowrap">
+        {title}
+      </h2>
 
-        {hasCloseButton && (
-          <button
-            onClick={onClose}
-            className="px-2 py-1 rounded-lg text-sm font-semibold text-[#312c85] 
-               bg-indigo-100 hover:bg-indigo-200 transition shadow-sm"
-          >
-            ✕
-          </button>
-        )}
-      </div>
-
-      {/* BOTTOM ROW: Dropdown + Diff + Info button */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+      {/* Controls */}
+      <div className="flex items-center gap-2 flex-1">
         {alternatives.length > 0 && (
           <select
             value={selectedVersionId}
             onChange={(e) => onVersionChange(e.target.value)}
-            className="text-lg rounded-md border border-indigo-900/20 bg-white px-2 py-1 text-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="text-sm rounded-md border border-indigo-900/20 bg-white px-2 py-1 text-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {alternatives.map((alt) => (
               <option key={alt.id} value={alt.id}>
@@ -71,7 +61,7 @@ export default function HeaderTextPanel({
         {onToggleDiff && (
           <button
             onClick={onToggleDiff}
-            className="px-2 py-1 text-sm bg-indigo-100 rounded hover:bg-indigo-200 text-indigo-900"
+            className="px-2 py-1 text-xs bg-indigo-100 rounded hover:bg-indigo-200 text-indigo-900 whitespace-nowrap"
           >
             {showDiff ? "Diff ON" : "Diff OFF"}
           </button>
@@ -80,13 +70,24 @@ export default function HeaderTextPanel({
         {showInfoButton && (
           <button
             onClick={onOpenInfo}
-            className="px-3 py-0 rounded-lg   font-semibold text-[#312c85] 
-               bg-indigo-100 hover:bg-indigo-200 transition shadow-sm text-lg"
+            className="px-2 py-1 rounded-lg font-semibold text-[#312c85] 
+          bg-indigo-100 hover:bg-indigo-200 transition shadow-sm text-sm whitespace-nowrap"
           >
             Info
           </button>
         )}
       </div>
+
+      {/* Close */}
+      {hasCloseButton && (
+        <button
+          onClick={onClose}
+          className="px-2 py-1 rounded-lg text-sm font-semibold text-[#312c85] 
+        bg-indigo-100 hover:bg-indigo-200 transition shadow-sm whitespace-nowrap"
+        >
+          ✕
+        </button>
+      )}
     </header>
   );
 }
