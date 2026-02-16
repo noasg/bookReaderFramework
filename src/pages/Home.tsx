@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { resetUI } from "../components/ui/uiSlice";
 import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
-import BookTile from "../components/BookTile";
+import BookTile from "../components/platform/BookTile";
 // import IntermediatePopUp from "../components/IntermediatePopUp";
 import books from "../data/books.json";
 

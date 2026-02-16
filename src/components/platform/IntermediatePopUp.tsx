@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import SingleRightArrow from "./SingleRightArrow";
-import SingleLeftArrow from "./SingleLeftArrow";
+import SingleRightArrow from "../graphic/SingleRightArrow";
+import SingleLeftArrow from "../graphic/SingleLeftArrow";
 
 export type IntermediatePopUpProps = {
   isOpen: boolean;

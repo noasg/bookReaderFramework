@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import type { RootState } from "../../store";
-import { openChapter } from "./ui/uiSlice";
+import type { RootState } from "../../../../store";
+import { openChapter } from "../../ui/uiSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
+import LeftArrow from "../../graphic/LeftArrow";
+import RightArrow from "../../graphic/RightArrow";
 
 export default function BookSidebar({ bookId }: { bookId?: string }) {
   const dispatch = useDispatch();

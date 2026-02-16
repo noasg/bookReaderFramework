@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import TopBar from "../TopBar";
-import BookSidebar from "../BookSidebar";
-import RightPanel from "../RightPanel";
+import TopBar from "../framework/main/TopBar";
+import BookSidebar from "../framework/main/BookSidebar";
+import RightPanel from "../framework/main/RightPanel";
 import { openBook } from "../../features/bookSlice";
 import { openChapter } from "../ui/uiSlice";
 import { store, type RootState } from "../../../store";
-import Footer from "../Footer";
+import Footer from "../framework/main/Footer";
 
 export default function BookPage() {
   const { bookId, chapterId } = useParams<{

@@ -1,4 +1,4 @@
-import legenda from "../data/legenda.json";
+import legenda from "../../../data/legenda.json";
 
 type LegendItem = {
   label: string;

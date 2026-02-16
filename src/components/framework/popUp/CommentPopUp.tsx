@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import type { Comments } from "../types/types";
+import type { Comments } from "../../../types/types";
 
 type CommentPopupProps = {
   anchorRect: DOMRect | null;

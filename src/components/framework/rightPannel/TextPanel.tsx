@@ -1,9 +1,12 @@
 import { useMemo, useState } from "react";
-import type { ChapterAlternative, ChapterNote, Comments } from "../types/types";
+import type {
+  ChapterAlternative,
+  ChapterNote,
+  Comments,
+} from "../../../types/types";
 import HeaderTextPanel from "./HeaderTextPanel";
-import DiffText from "./DiffText";
 import TextWithComments from "./TextWithComments";
-import ChapterNotesPopUp from "./ChapterNotesPopUp";
+import ChapterNotesPopUp from "../popUp/ChapterNotesPopUp";
 
 type TextPanelProps = {
   title: string;
@@ -19,10 +22,6 @@ type TextPanelProps = {
   onClose: () => void;
 
   extraClasses?: string;
-
-  diffAgainstText?: string;
-  showDiff?: boolean;
-  onToggleDiff?: () => void;
 
   comments?: Comments[];
   chapterId: string;
@@ -42,9 +41,6 @@ export default function TextPanel({
   side,
   onClose,
   extraClasses = "",
-  diffAgainstText,
-  showDiff,
-  onToggleDiff,
   comments,
   chapterId,
   hasCloseButton = true,
@@ -100,8 +96,6 @@ export default function TextPanel({
         onVersionChange={setSelectedVersionIdFn}
         alternatives={alternatives}
         onClose={onClose}
-        showDiff={showDiff}
-        onToggleDiff={onToggleDiff}
         hasCloseButton={hasCloseButton}
         chapterNotes={chapterNotes}
         onOpenInfo={() => setInfoOpen(true)}
@@ -109,22 +103,15 @@ export default function TextPanel({
 
       {/* --- TEXT CONTENT --- */}
       <div className="flex-1 px-4 py-4 space-y-4 overflow-y-auto">
-        {diffAgainstText && showDiff ? (
-          <DiffText
-            baseText={diffAgainstText}
-            compareText={paragraphs.map((p) => p.text).join("\n")}
+        {paragraphs.map((p) => (
+          <TextWithComments
+            key={p.id}
+            paragraph={p}
+            chapterId={chapterId}
+            versionId={selectedVersion?.id ?? ""}
+            comments={comments ?? []}
           />
-        ) : (
-          paragraphs.map((p) => (
-            <TextWithComments
-              key={p.id}
-              paragraph={p}
-              chapterId={chapterId}
-              versionId={selectedVersion?.id ?? ""}
-              comments={comments ?? []}
-            />
-          ))
-        )}
+        ))}
       </div>
     </section>
   );

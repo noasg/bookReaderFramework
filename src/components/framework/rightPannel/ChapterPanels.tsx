@@ -1,9 +1,9 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import type { Chapter, ChapterNote, Comments } from "../types/types";
+import type { Chapter, ChapterNote, Comments } from "../../../types/types";
 import TextPanel from "./TextPanel";
-import type { RootState } from "../../store";
+import type { RootState } from "../../../../store";
 
 type ChapterPanelsProps = {
   chapter: Chapter;
@@ -51,12 +51,6 @@ export default function ChapterPanels({
       if (bookId) navigate(`/${bookId}`, { replace: true });
     }
   }, [showLeft, showRight, hasAlternatives, navigate, bookId]);
-
-  // Left panel text for diff
-  const leftVersionText = useMemo(() => {
-    const leftVersion = sourceTexts.find((a) => a.id === leftSelectedVersionId);
-    return leftVersion?.paragraphs.map((p) => p.text).join("\n") ?? "";
-  }, [leftSelectedVersionId, sourceTexts]);
 
   // ✅ Only reset selected IDs if current selection no longer exists
   useEffect(() => {
@@ -118,7 +112,6 @@ export default function ChapterPanels({
           widthMode={visiblePanels === 2 ? "half" : "full"}
           side="right"
           onClose={() => setShowRight(false)}
-          diffAgainstText={leftVersionText}
           extraClasses="
   bg-white
   border-t border-indigo-900/20 shadow-md

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import type { RootState } from "../../store";
-import ChapterPanels from "./ChapterPanels";
-import type { Chapter } from "../types/types";
+import type { RootState } from "../../../../store";
+import ChapterPanels from "../rightPannel/ChapterPanels";
+import type { Chapter } from "../../../types/types";
 
 export default function RightPanel() {
   const activeBookId = useSelector(

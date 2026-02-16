@@ -1,6 +1,10 @@
 export interface Paragraph {
   id: string;
+  text: string | string[];
+}
+export interface ParsedPart {
   text: string;
+  commentId?: string;
 }
 
 export interface Chapter {

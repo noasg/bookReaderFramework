@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../../store";
-import { toggleTextMode } from "./ui/uiSlice";
+import type { RootState } from "../../../../store";
+import { toggleTextMode } from "../../ui/uiSlice";
 
 export default function Footer() {
   const dispatch = useDispatch();

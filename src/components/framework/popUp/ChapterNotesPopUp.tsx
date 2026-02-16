@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { ChapterNote } from "../types/types";
+import type { ChapterNote } from "../../../types/types";
 
 type ChapterNotesPopUpProps = {
   isOpen: boolean;

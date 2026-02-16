@@ -12,9 +12,7 @@ export default function BookTile({ id, title, image, onOpen }: BookTileProps) {
       className="
         group
         flex flex-col items-center
-         
-       w-56
-       
+        w-56      
         rounded-xl
         bg-white
         shadow-md

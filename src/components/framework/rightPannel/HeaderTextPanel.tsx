@@ -1,4 +1,4 @@
-import type { ChapterAlternative, ChapterNote } from "../types/types";
+import type { ChapterAlternative, ChapterNote } from "../../../types/types";
 
 type HeaderTextPanelProps = {
   title: string;
@@ -7,8 +7,7 @@ type HeaderTextPanelProps = {
   onVersionChange: (id: string) => void;
   alternatives?: ChapterAlternative[];
   onClose: () => void;
-  showDiff?: boolean;
-  onToggleDiff?: () => void;
+
   hasCloseButton?: boolean;
   chapterNotes?: ChapterNote[];
   onOpenInfo?: () => void; // callback
@@ -21,8 +20,7 @@ export default function HeaderTextPanel({
   onVersionChange,
   alternatives = [],
   onClose,
-  showDiff,
-  onToggleDiff,
+
   hasCloseButton,
   chapterNotes = [],
   onOpenInfo,
@@ -56,15 +54,6 @@ export default function HeaderTextPanel({
               </option>
             ))}
           </select>
-        )}
-
-        {onToggleDiff && (
-          <button
-            onClick={onToggleDiff}
-            className="px-2 py-1 text-xs bg-indigo-100 rounded hover:bg-indigo-200 text-indigo-900 whitespace-nowrap"
-          >
-            {showDiff ? "Diff ON" : "Diff OFF"}
-          </button>
         )}
 
         {showInfoButton && (

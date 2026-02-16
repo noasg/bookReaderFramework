@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import type { Paragraph, Comments } from "../types/types";
-import CommentPopup from "./CommentPopUp";
+import type { Paragraph, Comments } from "../../../types/types";
+import CommentPopup from "../popUp/CommentPopUp";
+import { parseParagraph } from "../../utils/parseParagraph";
 
 type TextWithCommentsProps = {
   paragraph: Paragraph;
@@ -8,28 +9,6 @@ type TextWithCommentsProps = {
   versionId: string;
   comments: Comments[];
 };
-
-// Helper: parse paragraph text into parts with commentId
-function parseParagraph(paragraph: Paragraph) {
-  const parts: { text: string; commentId?: string }[] = [];
-  const commentRegex = /<comment id=['"]([^'"]+)['"]>(.*?)<\/comment>/g;
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-
-  while ((match = commentRegex.exec(paragraph.text)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push({ text: paragraph.text.slice(lastIndex, match.index) });
-    }
-    parts.push({ text: match[2], commentId: match[1] });
-    lastIndex = match.index + match[0].length;
-  }
-
-  if (lastIndex < paragraph.text.length) {
-    parts.push({ text: paragraph.text.slice(lastIndex) });
-  }
-
-  return parts;
-}
 
 export default function TextWithComments({
   paragraph,

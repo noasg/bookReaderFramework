@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
-import { closeBook } from "../features/bookSlice";
-import { resetUI } from "./ui/uiSlice";
+import { closeBook } from "../../../features/bookSlice";
+import { resetUI } from "../../ui/uiSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import SingleLeftArrow from "./SingleLeftArrow";
-import InfoPopUp from "./InfoPopUp";
+import SingleLeftArrow from "../../graphic/SingleLeftArrow";
+import InfoPopUp from "../popUp/InfoPopUp";
 
 export default function TopBar() {
   const dispatch = useDispatch();
