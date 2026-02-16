@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Book, ChapterNote, Comments } from "../types/types";
 import book1 from "../data/book1.json";
 import book2 from "../data/book2.json";
-
+import book3 from "../data/book3.json";
 // ---------------------- Types ----------------------
 
 interface BookState {
@@ -29,6 +29,7 @@ const initialState: BookState = {
   books: {
     [book1.id]: transformBook(book1),
     [book2.id]: transformBook(book2),
+    [book3.id]: transformBook(book3),
   },
   comments: book1.comments as Comments[],
   activeBookId: null,

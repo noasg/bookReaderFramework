@@ -1,0 +1,22 @@
+{
+  "id": "book3",
+  "title": "Demo Book Two",
+  "chapters": [
+    {
+      "id": "ch-1",
+      "title": "Another Beginning",
+      "alternatives": [
+        {
+          "id": "original",
+          "label": "Original",
+          "paragraphs": [
+            {
+              "id": "p-1",
+              "text": "Book 3 starts differently."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
