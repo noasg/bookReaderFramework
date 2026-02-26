@@ -6,17 +6,19 @@ import BookSidebar from "../framework/main/BookSidebar";
 import RightPanel from "../framework/main/RightPanel";
 import { openBook } from "../../features/bookSlice";
 import { openChapter } from "../ui/uiSlice";
-import { store, type RootState } from "../../../store";
+import { type RootState } from "../../../store";
 import Footer from "../framework/main/Footer";
+import NotFound from "./NotFound";
 
 export default function BookPage() {
   const { bookId, chapterId } = useParams<{
     bookId: string;
     chapterId?: string;
   }>();
+
   const dispatch = useDispatch();
 
-  // ✅ Get only activeBookId from Redux
+  const books = useSelector((state: RootState) => state.book.books);
   const activeBookId = useSelector(
     (state: RootState) => state.book.activeBookId,
   );
@@ -24,41 +26,59 @@ export default function BookPage() {
     (state: RootState) => state.ui.openChapterId,
   );
 
-  // Sync URL → Redux
+  const bookExists = bookId && books[bookId];
+  const chapterExists =
+    chapterId &&
+    bookExists &&
+    books[bookId].chapters.some((c) => c.id === chapterId);
+
+  // ✅ Hooks must run before any return
   useEffect(() => {
+    if (!bookExists) return;
+
     if (bookId && bookId !== activeBookId) {
       dispatch(openBook(bookId));
 
-      // ✅ auto-select first chapter if none
-      const bookFromStore = store.getState().book.books[bookId];
+      const bookFromStore = books[bookId];
 
-      console.log("BookPage useEffect - bookFromStore:", bookFromStore);
-      if (bookFromStore?.chapters?.length && !activeChapterId) {
+      if (bookFromStore?.chapters?.length && !chapterId) {
         dispatch(openChapter(bookFromStore.chapters[0].id));
       }
     }
+
     if (chapterId && chapterId !== activeChapterId) {
       dispatch(openChapter(chapterId));
     }
-  }, [bookId, chapterId, activeBookId, activeChapterId, dispatch]);
+  }, [
+    bookId,
+    chapterId,
+    activeBookId,
+    activeChapterId,
+    books,
+    bookExists,
+    dispatch,
+  ]);
 
-  // Wait until Redux knows the book
-  if (!activeBookId) return null;
+  // ✅ Now safe to return conditionally
+  if (!bookExists) {
+    return <NotFound />;
+  }
+
+  if (chapterId && !chapterExists) {
+    return <NotFound />;
+  }
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
-      {/* Top */}
       <TopBar />
 
-      {/* Middle scrollable area ONLY */}
       <div className="flex flex-1 overflow-hidden">
         <div className="flex flex-1 overflow-y-auto">
-          <BookSidebar bookId={activeBookId} />
+          <BookSidebar bookId={bookId!} />
           <RightPanel />
         </div>
       </div>
 
-      {/* Footer - ALWAYS visible */}
       <Footer />
     </div>
   );
