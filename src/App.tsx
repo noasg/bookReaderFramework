@@ -1,3 +1,9 @@
+/**
+ * © 2026 Adrian Popescu. All rights reserved.
+ * Proprietary and confidential.
+ * Unauthorized copying or use is strictly prohibited.
+ */
+
 import "../global.css";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
